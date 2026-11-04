@@ -1,0 +1,307 @@
+<div class="landing-login-wrapper fade-in-view">
+
+    <!-- =====================================================================
+         NAVBAR SUPERIOR QUE SE ENCOGE CON EL SCROLL (Estilo ContentAI)
+         ===================================================================== -->
+    <header id="mainNavbar" class="smart-navbar">
+        <div class="nav-container">
+            <!-- Logo UNS a la izquierda -->
+            <a href="#acceso" class="nav-brand">
+                <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Logo UNS" class="uns-logo">
+                <div class="brand-text">
+                    <span class="brand-title">Servicio Médico</span>
+                    <span class="brand-sub">Universidad Nacional del Santa</span>
+                </div>
+            </a>
+
+            <!-- Enlaces centrales de navegación suave -->
+            <nav class="nav-menu">
+                <a href="#acceso" class="nav-link active">Iniciar Sesión</a>
+                <a href="#especialidades" class="nav-link">Especialidades</a>
+                <a href="#proceso" class="nav-link">Cómo Reservar</a>
+                <a href="#horarios" class="nav-link">Horarios y Reglas</a>
+            </nav>
+
+            <!-- Botón rápido que enfoca el input de Código/DNI -->
+            <div class="nav-actions">
+                <button type="button" id="btnFocusLogin" class="nav-cta-btn">
+                    <i class="ri-user-shared-line"></i>
+                    <span>Acceso UNS</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         SECCIÓN 1 (PARTE PRINCIPAL): LOGIN LIMPIO + PUNKURÍ GIGANTE A LA DERECHA
+         ===================================================================== -->
+    <section id="acceso" class="login-hero-section">
+        
+        <div class="login-left-column">
+            <div class="login-form-box">
+                <span class="uns-unit-tag">DIRECCIÓN DE BIENESTAR UNIVERSITARIO</span>
+                <h1 class="signin-title">Iniciar sesión</h1>
+                <p class="signin-subtitle">
+                    Sistema de Gestión y Reservas de Citas Médicas para estudiantes, docentes y personal administrativo de la UNS.
+                </p>
+
+                <!-- Formulario Limpio (SOLO LOGIN - Sin creación de cuentas) -->
+                <form id="loginForm" class="clean-form" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="identificador">Código Universitario o DNI</label>
+                        <div class="input-pill">
+                            <i class="ri-mail-line field-icon"></i>
+                            <input 
+                                type="text" 
+                                id="identificador" 
+                                name="identificador" 
+                                placeholder="Ej. 0202414046 o DNI" 
+                                maxlength="12"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-pill">
+                            <i class="ri-lock-2-line field-icon"></i>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="••••••••" 
+                                required
+                            >
+                            <button type="button" id="togglePassword" class="eye-toggle" title="Mostrar u ocultar">
+                                <i class="ri-eye-off-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="remember-row">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span class="checkmark"></span>
+                            <span class="label-text">Recordar mi sesión en este equipo</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="btnSubmit" class="btn-signin">
+                        <span>Ingresar al Sistema</span>
+                    </button>
+
+                    <div id="feedbackMsg" class="feedback-msg"></div>
+
+                    <div class="form-footer-links">
+                        <p class="institutional-note">
+                            ¿No tienes acceso? Las cuentas son habilitadas por <strong>Bienestar Universitario</strong>.
+                        </p>
+                        <button type="button" id="btnRecovery" class="forgot-link">
+                            ¿Olvidaste tu contraseña?
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Punkurí gigante a la derecha que oscurece, esclarece y flota -->
+        <div class="punkuri-right-stage" aria-hidden="true">
+            <div class="punkuri-soft-glow"></div>
+            <img 
+                src="https://www.uns.edu.pe/img/punkuri.png" 
+                alt="Punkurí Universidad Nacional del Santa" 
+                class="punkuri-giant-art"
+            >
+        </div>
+
+        <!-- Indicador sutil de Scroll hacia la información detallada -->
+        <a href="#especialidades" class="scroll-down-hint">
+            <span>Conoce los servicios médicos</span>
+            <i class="ri-arrow-down-line"></i>
+        </a>
+    </section>
+
+    <!-- =====================================================================
+         SECCIÓN 2: ESPECIALIDADES MÉDICAS DE LA UNS
+         ===================================================================== -->
+    <section id="especialidades" class="info-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">ATENCIÓN INTEGRAL UNS</span>
+                <h2 class="section-title">Especialidades disponibles en línea</h2>
+                <p class="section-desc">
+                    Selecciona la especialidad requerida desde tu panel de usuario, revisa los horarios de cada profesional y agenda tu atención sin hacer filas presenciales.
+                </p>
+            </div>
+
+            <div class="specialties-grid">
+                <!-- Card 1 -->
+                <article class="clean-card">
+                    <div class="card-icon"><i class="ri-stethoscope-line"></i></div>
+                    <h3>Medicina General</h3>
+                    <p>Evaluación clínica primaria, triaje, diagnóstico, tratamiento médico y emisión de constancias de salud para trámites académicos.</p>
+                    <span class="card-meta">Duración promedio: 20 min</span>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="clean-card">
+                    <div class="card-icon"><i class="ri-Tooth-line ri-heart-pulse-line"></i></div>
+                    <h3>Odontología</h3>
+                    <p>Prevención, profilaxis dental, curaciones, extracciones simples y diagnóstico odontológico integral para la comunidad universitaria.</p>
+                    <span class="card-meta">Duración promedio: 30 min</span>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="clean-card">
+                    <div class="card-icon"><i class="ri-mental-health-line"></i></div>
+                    <h3>Psicología</h3>
+                    <p>Orientación psicológica confidencial, manejo de estrés académico, evaluaciones emocionales y seguimiento personalizado.</p>
+                    <span class="card-meta">Duración promedio: 45 min</span>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="clean-card">
+                    <div class="card-icon"><i class="ri-eye-2-line"></i></div>
+                    <h3>Oftalmología y Tópico</h3>
+                    <p>Control de agudeza visual, curaciones rápidas, control de funciones vitales, administración de inyectables y primeros auxilios.</p>
+                    <span class="card-meta">Atención continua</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECCIÓN 3: FLUJO DE RESERVA Y GESTIÓN DE CITAS
+         ===================================================================== -->
+    <section id="proceso" class="info-section bg-white-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">FLUJO DEL SISTEMA</span>
+                <h2 class="section-title">¿Cómo funciona la reserva de citas?</h2>
+                <p class="section-desc">
+                    El sistema centraliza tu historial clínico, recetas y programación de turnos en cuatro simples pasos.
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-number">01</span>
+                    <h4>Ingresa con tu Código UNS</h4>
+                    <p>Accede con tu código de matrícula o DNI. El sistema valida automáticamente tu condición de estudiante, docente o administrativo.</p>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">02</span>
+                    <h4>Elige Especialidad y Médico</h4>
+                    <p>Visualiza en tiempo real los cupos libres por fecha y hora según la agenda configurada de cada médico de la Unidad.</p>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">03</span>
+                    <h4>Recibe Notificaciones</h4>
+                    <p>Obtén confirmación inmediata y recordatorios automáticos por correo y WhatsApp 24 horas y 2 horas antes de tu cita.</p>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">04</span>
+                    <h4>Consulta tu Historial PDF</h4>
+                    <p>Revisa tus diagnósticos, notas médicas, recetas adjuntas o estudios clínicos y descárgalos en formato PDF cuando lo necesites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         SECCIÓN 4: HORARIOS, REGLAS Y PROTECCIÓN DE DATOS
+         ===================================================================== -->
+    <section id="horarios" class="info-section">
+        <div class="section-container">
+            <div class="rules-split-box">
+                
+                <div class="rules-column">
+                    <span class="section-badge">NORMATIVA Y ATENCIÓN</span>
+                    <h2 class="section-title">Horarios y políticas de asistencia</h2>
+                    <p class="section-desc">
+                        Para garantizar que todos los miembros de la Universidad Nacional del Santa accedan oportunamente al servicio, las reservas siguen estas reglas:
+                    </p>
+
+                    <ul class="clean-list">
+                        <li>
+                            <i class="ri-time-line"></i>
+                            <div>
+                                <strong>Horario de la Unidad Médica:</strong> Lunes a Viernes de 8:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:30 p.m. (Campus Universitario - Nuevo Chimbote).
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-calendar-close-line"></i>
+                            <div>
+                                <strong>Cancelación y Reprogramación:</strong> Puedes cancelar o reprogramar tu cita desde la plataforma hasta con 4 horas de anticipación.
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-shield-keyhole-line"></i>
+                            <div>
+                                <strong>Privacidad Clínica (Ley N° 29733):</strong> Tu historial médico y documentos adjuntos están cifrados y solo son visibles para ti y tu médico tratante.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="roles-summary-card">
+                    <h3>Perfiles habilitados en la plataforma</h3>
+                    <p>Al iniciar sesión, el sistema cargará automáticamente tu entorno de trabajo según tu rol institucional:</p>
+                    
+                    <div class="role-pills">
+                        <div class="role-row">
+                            <span class="role-dot"></span>
+                            <div>
+                                <strong>Estudiantes, Docentes y Personal</strong>
+                                <span>Reserva de citas, historial PDF y subida de análisis clínicos.</span>
+                            </div>
+                        </div>
+                        <div class="role-row">
+                            <span class="role-dot"></span>
+                            <div>
+                                <strong>Médicos de la Unidad</strong>
+                                <span>Gestión de agenda diaria, registro de notas clínicas y recetas.</span>
+                            </div>
+                        </div>
+                        <div class="role-row">
+                            <span class="role-dot"></span>
+                            <div>
+                                <strong>Recepción y Admisión</strong>
+                                <span>Confirmación de asistencia, reprogramaciones y triaje rápido.</span>
+                            </div>
+                        </div>
+                        <div class="role-row">
+                            <span class="role-dot"></span>
+                            <div>
+                                <strong>Bienestar Universitario / TI</strong>
+                                <span>Reportes estadísticos Excel/PDF, gestión de horarios y auditoría.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         FOOTER INSTITUCIONAL LIMPIO
+         ===================================================================== -->
+    <footer class="clean-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="UNS" class="footer-logo">
+                <span>© Universidad Nacional del Santa — Unidad de Servicio Médico. Av. Pacífico 508, Nuevo Chimbote.</span>
+            </div>
+            <div class="footer-right">
+                <a href="#acceso">Volver arriba <i class="ri-arrow-up-line"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</div>

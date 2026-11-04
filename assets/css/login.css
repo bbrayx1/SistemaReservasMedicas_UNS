@@ -1,0 +1,815 @@
+/* ==========================================================================
+   1. NAVBAR SUPERIOR QUE SE ENCOGE CON EL SCROLL (Estilo ContentAI)
+   ========================================================================== */
+.smart-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 8%;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    border-radius: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado cuando bajas con el Scroll: se encoge y se vuelve cápsula flotante */
+.smart-navbar.scrolled {
+    padding: 12px 4%;
+}
+
+.smart-navbar.scrolled .nav-container {
+    max-width: 1060px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 10px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(229, 231, 235, 0.9);
+    box-shadow: 0 12px 32px -8px rgba(17, 24, 39, 0.08);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.uns-logo {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.35s ease;
+}
+
+.smart-navbar.scrolled .uns-logo {
+    height: 36px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.brand-sub {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-main);
+}
+
+.nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: var(--btn-dark);
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav-cta-btn:hover {
+    background-color: var(--uns-red);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2. SECCIÓN PRINCIPAL DE LOGIN (Idéntica a la imagen limpia)
+   ========================================================================== */
+.login-hero-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--bg-canvas);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.login-left-column {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 110px 8% 60px;
+    display: flex;
+    align-items: center;
+}
+
+.login-form-box {
+    width: 100%;
+    max-width: 395px;
+}
+
+.uns-unit-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--uns-red);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.signin-title {
+    font-family: var(--font-heading);
+    font-size: 2.45rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.035em;
+    margin-bottom: 10px;
+}
+
+.signin-subtitle {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+.clean-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.input-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    border: 1.5px solid var(--input-border);
+    border-radius: 12px;
+    height: 50px;
+    padding: 0 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.015);
+    transition: all 0.25s ease;
+}
+
+.input-pill:focus-within {
+    border-color: var(--btn-dark);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+.field-icon {
+    font-size: 1.15rem;
+    color: #3f3f46;
+    margin-right: 12px;
+    transition: color 0.2s ease;
+}
+
+.input-pill:focus-within .field-icon {
+    color: var(--uns-red);
+}
+
+.input-pill input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: var(--text-main);
+}
+
+.input-pill input::placeholder {
+    color: #9ca3af;
+}
+
+.eye-toggle {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 1.05rem;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.eye-toggle:hover {
+    color: var(--text-main);
+}
+
+/* Checkbox Recordar sesión */
+.remember-row {
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #52525b;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: var(--btn-dark);
+    border-color: var(--btn-dark);
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 1px;
+}
+
+.label-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Botón Principal Negro */
+.btn-signin {
+    width: 100%;
+    height: 50px;
+    background-color: var(--btn-dark);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(20, 20, 22, 0.14);
+}
+
+.btn-signin:hover {
+    background-color: var(--btn-dark-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(20, 20, 22, 0.22);
+}
+
+.feedback-msg {
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-height: 18px;
+}
+
+.feedback-msg.error { color: var(--uns-red); }
+.feedback-msg.success { color: #059669; }
+
+.form-footer-links {
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.institutional-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.institutional-note strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.forgot-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.forgot-link:hover {
+    color: var(--uns-red);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. PUNKURÍ GIGANTE A LA DERECHA (Oscurece, esclarece y se mueve)
+   ========================================================================== */
+.punkuri-right-stage {
+    position: absolute;
+    top: 0;
+    right: -4%;
+    bottom: 0;
+    width: 56%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.punkuri-soft-glow {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(200, 16, 46, 0.09) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        transparent 75%
+    );
+
+    filter: blur(40px);
+    animation: glowPulse 5.5s ease-in-out infinite;
+}
+
+.punkuri-giant-art {
+    height: 92vh;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: bottom right;
+
+    transform-origin: bottom center;
+
+    opacity: 0.75;
+    animation: punkuriShadeAndFloat 5.5s ease-in-out infinite;
+}
+
+/* Oscurecer, esclarecer y flotar */
+
+@keyframes punkuriShadeAndFloat {
+
+    0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+
+        opacity: 0.75;
+
+        filter:
+            grayscale(100%)
+            brightness(0.85)
+            contrast(1.15)
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    }
+
+    50% {
+        transform: translateY(-14px) translateX(-6px) scale(1.018);
+
+        opacity: 1;
+
+        filter:
+            grayscale(100%)
+            brightness(0.45)
+            contrast(1.5)
+            drop-shadow(0 14px 32px rgba(20, 20, 22, 0.25));
+    }
+}
+
+@keyframes glowPulse {
+
+    0%, 100% {
+        opacity: 0.55;
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    50% {
+        opacity: 0.95;
+        transform: translateY(-50%) scale(1.00);
+    }
+}
+/* Indicador inferior para bajar a ver la información */
+.scroll-down-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 8%;
+    z-index: 15;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.scroll-down-hint i {
+    animation: bounceArrow 2s infinite;
+}
+
+.scroll-down-hint:hover {
+    color: var(--text-main);
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
+/* ==========================================================================
+   4. SECCIONES INFORMATIVAS INFERIORES (Tipografía limpia y formal)
+   ========================================================================== */
+.info-section {
+    padding: 96px 8%;
+    background-color: var(--bg-canvas);
+    border-top: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+.bg-white-section {
+    background-color: var(--bg-white);
+}
+
+.section-container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.section-header {
+    max-width: 640px;
+    margin-bottom: 56px;
+}
+
+.section-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--uns-red);
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
+    margin-bottom: 14px;
+}
+
+.section-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+/* Grid de Especialidades */
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.clean-card {
+    background: var(--bg-white);
+    border: 1px solid var(--input-border);
+    border-radius: 18px;
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.clean-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px -12px rgba(17, 24, 39, 0.07);
+    border-color: #d1d5db;
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: var(--bg-canvas);
+    color: var(--btn-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 22px;
+    transition: all 0.25s ease;
+}
+
+.clean-card:hover .card-icon {
+    background-color: var(--uns-red);
+    color: #ffffff;
+}
+
+.clean-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.clean-card p {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.card-meta {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text-main);
+    padding-top: 14px;
+    border-top: 1px solid var(--input-border);
+}
+
+/* Grid de Pasos */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.step-item {
+    padding: 28px;
+    border-radius: 18px;
+    background-color: var(--bg-canvas);
+    border: 1px solid var(--input-border);
+}
+
+.step-number {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--uns-red);
+    margin-bottom: 14px;
+}
+
+.step-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.step-item p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Sección de Horarios y Perfiles */
+.rules-split-box {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.clean-list {
+    list-style: none;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.clean-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.clean-list li i {
+    font-size: 1.25rem;
+    color: var(--uns-red);
+    margin-top: 2px;
+}
+
+.clean-list li strong {
+    color: var(--text-main);
+}
+
+.roles-summary-card {
+    background-color: var(--btn-dark);
+    color: #ffffff;
+    border-radius: 22px;
+    padding: 38px 34px;
+    box-shadow: 0 24px 48px -12px rgba(20, 20, 22, 0.25);
+}
+
+.roles-summary-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.roles-summary-card > p {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    line-height: 1.55;
+    margin-bottom: 24px;
+}
+
+.role-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.role-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.role-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--uns-red);
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.role-row div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.role-row strong {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.role-row span {
+    font-size: 0.78rem;
+    color: #a1a1aa;
+}
+
+/* Footer */
+.clean-footer {
+    background-color: var(--bg-white);
+    border-top: 1px solid var(--input-border);
+    padding: 28px 8%;
+}
+
+.footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+}
+
+.footer-right a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1080px) {
+    .specialties-grid,
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rules-split-box {
+        grid-template-columns: 1fr;
+    }
+
+    .punkuri-right-stage {
+        width: 68%;
+        right: -12%;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .specialties-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .punkuri-right-stage {
+        width: 100%;
+        right: -25%;
+        opacity: 0.2;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+}
