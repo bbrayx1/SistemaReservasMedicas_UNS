@@ -123,35 +123,83 @@ const LoginController = {
     });
   },
 
-  initForm() {
-    const form = document.getElementById('loginForm');
-    const code = document.getElementById('identificador');
-    const password = document.getElementById('password');
-    const toggle = document.getElementById('togglePassword');
-    const recovery = document.getElementById('btnRecovery');
-    const message = document.getElementById('feedbackMsg');
-    if(!form) return;
-    const clear = () => {message.textContent='';message.className='feedback-msg';};
-    const feedback = (content,kind='info') => {message.textContent=content;message.className=`feedback-msg is-visible ${kind}`;};
-    code.addEventListener('input', () => {code.value=code.value.replace(/\D/g,'').slice(0,10);clear();});
-    password.addEventListener('input',clear);
-    toggle.addEventListener('click',()=>{
-      const visible = password.type === 'password';
-      password.type=visible?'text':'password';
-      toggle.querySelector('i').className=visible?'ri-eye-off-line':'ri-eye-line';
-      toggle.setAttribute('aria-pressed',String(visible));
-      toggle.setAttribute('aria-label',visible?'Ocultar contraseña':'Mostrar contraseña');
-    });
-    recovery.addEventListener('click',()=>feedback('Solicita la recuperación de acceso a Bienestar Universitario o Soporte TI de la UNS.'));
-    form.addEventListener('submit',event=>{
-      event.preventDefault();
-      if(!/^(\d{8}|\d{10})$/.test(code.value.trim())){
-        feedback('Introduce un DNI de 8 dígitos o un código universitario de 10 dígitos.','error');code.focus();return;
-      }
-      if(!password.value){feedback('Introduce tu contraseña.','error');password.focus();return;}
-      // No se debe simular un login ni guardar una clave en el navegador.
-      // Aquí se añadirá POST /api/auth/login una vez creado el servidor.
-      feedback('El diseño del login está listo. La validación de identidad se activará cuando integremos el servidor y la base de datos. Aún no se ha iniciado sesión.');
-    });
-  }
+  
+initForm() {
+  const form = document.getElementById('loginForm');
+  if (!form) return;
+
+  const codigo = document.getElementById('codigoUniversitario');
+  const dni = document.getElementById('dni');
+  const password = document.getElementById('password');
+  const toggle = document.getElementById('togglePassword');
+  const recovery = document.getElementById('btnRecovery');
+  const message = document.getElementById('feedbackMsg');
+
+  const clear = () => {
+    message.textContent = '';
+    message.className = 'feedback-msg';
+  };
+
+  const feedback = (texto, tipo = 'info') => {
+    message.textContent = texto;
+    message.className = `feedback-msg is-visible ${tipo}`;
+  };
+
+  codigo.addEventListener('input', () => {
+    codigo.value = codigo.value.replace(/\D/g, '').slice(0, 10);
+    clear();
+  });
+
+  dni.addEventListener('input', () => {
+    dni.value = dni.value.replace(/\D/g, '').slice(0, 8);
+    clear();
+  });
+
+  password.addEventListener('input', clear);
+
+  toggle.addEventListener('click', () => {
+    const visible = password.type === 'password';
+    password.type = visible ? 'text' : 'password';
+
+    toggle.querySelector('i').className =
+      visible ? 'ri-eye-off-line' : 'ri-eye-line';
+
+    toggle.setAttribute('aria-pressed', String(visible));
+    toggle.setAttribute(
+      'aria-label',
+      visible ? 'Ocultar contraseña' : 'Mostrar contraseña'
+    );
+  });
+
+  recovery.addEventListener('click', () => {
+    feedback('Comunícate con Bienestar Universitario o Soporte TI de la UNS.');
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!/^\d{10}$/.test(codigo.value.trim())) {
+      feedback('El código universitario debe tener 10 dígitos.', 'error');
+      codigo.focus();
+      return;
+    }
+
+    if (!/^\d{8}$/.test(dni.value.trim())) {
+      feedback('El DNI debe tener exactamente 8 dígitos.', 'error');
+      dni.focus();
+      return;
+    }
+
+    if (!password.value.trim()) {
+      feedback('Ingresa tu contraseña.', 'error');
+      password.focus();
+      return;
+    }
+
+    feedback(
+      'Datos completos. La autenticación estará disponible al integrar la base de datos.'
+    );
+  });
+}
+
 };

@@ -10,7 +10,13 @@
 .site-header .nav{max-width:1320px;min-height:49px;display:flex;align-items:center;gap:22px;padding:7px 17px;border:1px solid transparent;border-radius:999px;transition:max-width .45s cubic-bezier(.18,.82,.21,1),padding .45s,background .45s,box-shadow .45s,border-color .45s,transform .45s}
 .site-header.is-scrolled{padding:11px 0}
 .site-header.is-scrolled .nav{max-width:1130px;padding:11px 22px;border-color:rgba(215,222,234,.88);background:rgba(255,255,255,.91);box-shadow:0 17px 48px rgba(28,47,81,.11);backdrop-filter:blur(17px);-webkit-backdrop-filter:blur(17px)}
-.brand{display:inline-flex;align-items:center;gap:9px;min-width:258px;text-decoration:none}
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 258px;
+    text-decoration: none;
+}
 .brand-logo{height:42px;width:42px;object-fit:contain;flex:none}
 .brand-copy{display:flex;align-items:center;gap:10px}
 .brand-copy>strong{font:800 29px/.95 var(--font-heading);letter-spacing:-.1em;color:#aa0e31}
