@@ -1,166 +1,132 @@
 <div class="site-shell" id="inicio">
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
+  <!-- Misma navegación institucional: al desplazarse se convierte en cápsula flotante. -->
   <header class="site-header" id="siteHeader">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Inicio - Servicio Médico UNS">
-        <img class="brand-logo" src="https://www.uns.edu.pe/img/logo_rojo.png" alt="" width="54" height="54">
+    <nav class="nav container" aria-label="Menú de navegación principal">
+      <a class="brand" href="#inicio" aria-label="Servicio Médico - Universidad Nacional del Santa">
+        <img class="brand-logo" src="https://www.uns.edu.pe/img/logo_rojo.png" width="47" height="47" alt="Escudo UNS">
         <span class="brand-copy"><strong>UNS<span class="brand-dot">.</span></strong><span>Universidad Nacional del Santa<small>Servicio Médico Universitario</small></span></span>
       </a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
-        <i class="ri-menu-3-line" aria-hidden="true"></i>
-      </button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú"><i class="ri-menu-3-line" aria-hidden="true"></i></button>
       <div class="nav-menu" id="navMenu">
         <a href="#inicio" class="nav-link active">Inicio</a>
         <a href="#especialidades" class="nav-link">Especialidades</a>
-        <a href="#proceso" class="nav-link">Cómo funciona</a>
         <a href="#horarios" class="nav-link">Horarios</a>
+        <a href="#informacion" class="nav-link">Información</a>
       </div>
-      <a class="nav-cta" href="#acceso"><i class="ri-login-circle-line" aria-hidden="true"></i> Acceso UNS</a>
+      <a href="#acceso" class="nav-cta"><i class="ri-login-circle-line" aria-hidden="true"></i><span>Acceso UNS</span></a>
     </nav>
   </header>
 
   <main>
+    <!-- ACCESO: inspirado en formulario Anywhere, sin registro de cuentas. -->
     <section class="hero" aria-labelledby="heroTitle">
-      <div class="hero-orbit orbit-one" aria-hidden="true"></div>
-      <div class="hero-orbit orbit-two" aria-hidden="true"></div>
-      <div class="hero-grid container">
-        <div class="hero-copy" id="acceso">
-          <p class="eyebrow"><span class="eyebrow-line"></span> DIRECCIÓN DE BIENESTAR UNIVERSITARIO</p>
-          <h1 id="heroTitle">Tu bienestar nos importa<span class="red-dot">.</span><br><span class="hero-title-sub">Conecta con tu salud.</span></h1>
-          <p class="hero-intro">Accede al Sistema de Reservas Médicas de la Universidad Nacional del Santa. Consulta los servicios y gestiona tu atención desde un solo lugar.</p>
-
+      <div class="hero-sheen" aria-hidden="true"></div>
+      <div class="hero-visual" aria-label="Paisaje natural que representa tranquilidad y bienestar">
+        <div class="hero-scenery" role="img" aria-label="Lago y montañas, fotografía de paisaje"></div>
+        <div class="visual-bluewash" aria-hidden="true"></div>
+        <svg class="organic-edge" aria-hidden="true" viewBox="0 0 330 900" preserveAspectRatio="none"><path d="M0 0 H255 C263 80 54 110 96 224 C128 309 292 293 270 415 C248 515 50 492 83 625 C120 758 208 796 60 900 H0 Z" fill="#fdfdff"/></svg>
+        <svg class="dashed-wave" aria-hidden="true" viewBox="0 0 330 900" preserveAspectRatio="none"><path d="M272 -40 C280 82 67 113 109 224 C140 311 307 295 282 417 C263 519 58 497 96 629 C132 759 220 792 68 936" fill="none" stroke="#8a9bb3" stroke-width="1.5" stroke-dasharray="8 10" opacity=".35"/></svg>
+        <img class="hero-punkuri" src="https://www.uns.edu.pe/img/punkuri.png" alt="" aria-hidden="true">
+        <span class="photo-note"><span></span> BIENESTAR UNIVERSITARIO · UNS</span>
+      </div>
+      <div class="container hero-layout">
+        <div class="hero-content" id="acceso">
+          <span class="hero-kicker">SERVICIO MÉDICO UNIVERSITARIO</span>
+          <h1 id="heroTitle">Iniciar sesión<span class="hero-dot">.</span></h1>
+          <p class="hero-description">Bienvenido al Sistema de Reservas Médicas de la <strong>Universidad Nacional del Santa</strong>. Accede con tus credenciales institucionales para gestionar tu bienestar.</p>
           <form id="loginForm" class="login-form" novalidate>
-            <div class="form-heading"><h2>Iniciar sesión</h2><span><i class="ri-shield-check-line" aria-hidden="true"></i> Acceso institucional</span></div>
             <div class="field">
-              <label for="identificador">Código de estudiante o DNI</label>
-              <div class="input-shell">
-                <i class="ri-user-3-line" aria-hidden="true"></i>
-                <input id="identificador" name="identificador" type="text" inputmode="numeric" autocomplete="username" placeholder="Ingresa tu código o DNI" maxlength="10" required aria-describedby="identifierHelp">
-              </div>
-              <small class="field-help" id="identifierHelp">DNI de 8 dígitos o código UNS de 10 dígitos.</small>
+              <label class="sr-only" for="identificador">Código de estudiante o DNI</label>
+              <div class="floating-input"><div class="input-content"><span class="floating-label">CÓDIGO UNIVERSITARIO O DNI</span><input id="identificador" name="identificador" type="text" inputmode="numeric" autocomplete="username" maxlength="10" placeholder="Ej. 0202414046 o DNI" required aria-describedby="identifierHelp"></div><i class="ri-id-card-line" aria-hidden="true"></i></div>
+              <span class="input-help" id="identifierHelp">DNI (8 dígitos) o código universitario (10 dígitos).</span>
             </div>
             <div class="field">
-              <label for="password">Contraseña</label>
-              <div class="input-shell">
-                <i class="ri-lock-password-line" aria-hidden="true"></i>
-                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required>
-                <button type="button" id="togglePassword" class="show-password" aria-label="Mostrar contraseña" aria-pressed="false"><i class="ri-eye-line" aria-hidden="true"></i></button>
-              </div>
+              <label class="sr-only" for="password">Contraseña</label>
+              <div class="floating-input"><div class="input-content"><span class="floating-label">CONTRASEÑA</span><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required></div><button type="button" id="togglePassword" class="show-password" aria-label="Mostrar contraseña" aria-pressed="false"><i class="ri-eye-line" aria-hidden="true"></i></button></div>
             </div>
-            <div class="form-actions">
-              <button type="submit" class="submit-btn" id="btnSubmit">Ingresar al sistema <i class="ri-arrow-right-line" aria-hidden="true"></i></button>
-              <button class="forgot-link" type="button" id="btnRecovery">¿Olvidaste tu contraseña?</button>
-            </div>
+            <div class="hero-actions"><button id="btnSubmit" type="submit" class="submit-btn">Ingresar al sistema <i class="ri-arrow-right-line" aria-hidden="true"></i></button><a class="secondary-btn" href="#especialidades">Explorar servicios <i class="ri-arrow-down-line" aria-hidden="true"></i></a></div>
+            <button type="button" id="btnRecovery" class="forgot-link">¿Olvidaste tu contraseña?</button>
             <p class="feedback-msg" id="feedbackMsg" role="status" aria-live="polite"></p>
-            <p class="login-footnote"><i class="ri-information-line" aria-hidden="true"></i> No se crean cuentas desde esta página. El acceso se habilita institucionalmente.</p>
+            <p class="hero-disclaimer"><i class="ri-shield-check-line" aria-hidden="true"></i> Acceso exclusivo para usuarios autorizados de la UNS. No se crean cuentas desde aquí.</p>
           </form>
         </div>
-
-        <div class="hero-art" aria-label="Ilustración de salud universitaria">
-          <div class="hero-picture">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1100&q=85" alt="Profesional de la salud, imagen ilustrativa" loading="eager">
-          </div>
-          <div class="hero-wave" aria-hidden="true"></div>
-          <img class="punkuri-watermark hero-punkuri" src="https://www.uns.edu.pe/img/punkuri.png" alt="" aria-hidden="true">
-          <div class="floating-card hero-card-one" aria-hidden="true"><span class="float-icon"><i class="ri-calendar-check-line"></i></span><span><strong>Tu próxima cita</strong><small>Más cerca de ti</small></span><i class="ri-arrow-up-right-line float-arrow"></i></div>
-          <div class="floating-card hero-card-two" aria-hidden="true"><span class="float-icon blue"><i class="ri-heart-pulse-line"></i></span><span><strong>Salud y bienestar</strong><small>Acompañamiento integral</small></span></div>
-          <span class="hero-caption">UNIVERSIDAD NACIONAL DEL SANTA <span>—</span> NUEVO CHIMBOTE</span>
-        </div>
       </div>
-      <a class="scroll-cue" href="#especialidades"><span>Descubre nuestros servicios</span><i class="ri-arrow-down-line" aria-hidden="true"></i></a>
+      <a class="scroll-cue" href="#especialidades"><span>DESCUBRE NUESTRAS ESPECIALIDADES</span><i class="ri-arrow-down-line" aria-hidden="true"></i></a>
     </section>
 
-    <section id="especialidades" class="specialties-section section-space" aria-labelledby="specialtiesTitle">
-      <div class="section-texture" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow"><span class="eyebrow-line"></span> CUIDAMOS DE TI</p>
-          <h2 id="specialtiesTitle">Un espacio para tu <em>salud y bienestar.</em></h2>
-          <p>Conoce las áreas de atención médica contempladas en nuestra plataforma y los servicios que podrás consultar al ingresar.</p>
-        </div>
-        <div class="specialty-editorial">
-          <article class="specialty-feature reveal">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1300&q=85" loading="lazy" alt="Atención médica, imagen ilustrativa">
-            <span class="editorial-frame" aria-hidden="true"></span>
-            <div class="specialty-feature-copy">
-              <span class="spec-number">01 / ATENCIÓN PRIMARIA</span>
-              <div class="spec-icon"><i class="ri-stethoscope-line" aria-hidden="true"></i></div>
-              <h3>Medicina<br>General</h3>
-              <p>Orientación, evaluación y atención integral para el cuidado de tu salud.</p>
+    <!-- ESPECIALIDADES: exactamente un espacio editorial principal + tres módulos intercambiables. -->
+    <section class="specialties-section" id="especialidades" aria-labelledby="specialtiesTitle">
+      <div class="spec-bg-contours" aria-hidden="true"></div>
+      <div class="container specialties-inner">
+        <div class="section-intro reveal"><span class="eyebrow">SERVICIOS DE SALUD / UNIVERSIDAD NACIONAL DEL SANTA</span><h2 id="specialtiesTitle">Especialidades <span>médicas.</span></h2><p>Conoce las áreas de atención y descubre cómo cuidamos tu bienestar. <strong>Selecciona una tarjeta</strong> para verla en portada.</p></div>
+        <div class="spec-stage" id="specialtyStage" aria-label="Galería interactiva de especialidades">
+          <div class="featured-slot" id="featuredSlot">
+            <button type="button" class="specialty-card is-feature" data-specialty="medicina" aria-label="Medicina General, especialidad destacada">
+              <span class="spec-photo"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1300&q=85" alt="Profesional de salud durante una consulta" loading="lazy"></span>
+              <span class="feature-outline" aria-hidden="true"></span>
+              <span class="spec-copy"><span class="spec-eyebrow">01 / ATENCIÓN PRIMARIA</span><span class="spec-title">Medicina General</span><span class="spec-description">Evaluación y orientación médica para cuidar de ti durante tu vida universitaria.</span><span class="spec-bottom">Servicio médico universitario <i class="ri-arrow-up-right-line" aria-hidden="true"></i></span></span>
+            </button>
+          </div>
+          <div class="spec-mini-grid" id="specMiniGrid">
+            <div class="mini-slot">
+              <button type="button" class="specialty-card is-mini" data-specialty="odontologia" aria-label="Destacar Odontología">
+                <span class="spec-photo"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=750&q=80" alt="Atención odontológica" loading="lazy"></span>
+                <span class="feature-outline" aria-hidden="true"></span>
+                <span class="spec-copy"><span class="spec-eyebrow">02 / SALUD BUCAL</span><span class="spec-title">Odontología</span><span class="spec-description">Prevención y atención de la salud bucal.</span><span class="spec-bottom">Ver especialidad <i class="ri-arrow-up-right-line" aria-hidden="true"></i></span></span>
+              </button>
             </div>
-          </article>
-          <div class="specialty-tiles">
-            <article class="specialty-tile reveal">
-              <div class="tile-art tile-dental"><i class="ri-hospital-line" aria-hidden="true"></i></div>
-              <div class="tile-body"><span>02 / SALUD BUCAL</span><h3>Odontología</h3><p>Prevención y cuidado de tu salud bucodental.</p></div>
-            </article>
-            <article class="specialty-tile reveal">
-              <div class="tile-art tile-mental"><i class="ri-mental-health-line" aria-hidden="true"></i></div>
-              <div class="tile-body"><span>03 / BIENESTAR EMOCIONAL</span><h3>Psicología</h3><p>Orientación y acompañamiento para el bienestar emocional.</p></div>
-            </article>
-            <article class="specialty-tile specialty-wide reveal">
-              <div class="tile-art tile-care"><i class="ri-first-aid-kit-line" aria-hidden="true"></i></div>
-              <div class="tile-body"><span>04 / ATENCIÓN COMPLEMENTARIA</span><h3>Oftalmología y tópico</h3><p>Orientación para el cuidado visual, procedimientos básicos y primeros auxilios, según disponibilidad institucional.</p></div>
-              <i class="ri-arrow-up-right-line tile-corner" aria-hidden="true"></i>
-            </article>
+            <div class="mini-slot">
+              <button type="button" class="specialty-card is-mini" data-specialty="psicologia" aria-label="Destacar Psicología">
+                <span class="spec-photo"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=750&q=80" alt="Sesión de orientación psicológica" loading="lazy"></span>
+                <span class="feature-outline" aria-hidden="true"></span>
+                <span class="spec-copy"><span class="spec-eyebrow">03 / BIENESTAR EMOCIONAL</span><span class="spec-title">Psicología</span><span class="spec-description">Orientación y acompañamiento emocional.</span><span class="spec-bottom">Ver especialidad <i class="ri-arrow-up-right-line" aria-hidden="true"></i></span></span>
+              </button>
+            </div>
+            <div class="mini-slot">
+              <button type="button" class="specialty-card is-mini" data-specialty="topico" aria-label="Destacar Tópico y Oftalmología">
+                <span class="spec-photo"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=750&q=80" alt="Equipos de atención de salud" loading="lazy"></span>
+                <span class="feature-outline" aria-hidden="true"></span>
+                <span class="spec-copy"><span class="spec-eyebrow">04 / ATENCIÓN COMPLEMENTARIA</span><span class="spec-title">Tópico y Oftalmología</span><span class="spec-description">Primeros auxilios y orientación visual.</span><span class="spec-bottom">Ver especialidad <i class="ri-arrow-up-right-line" aria-hidden="true"></i></span></span>
+              </button>
+            </div>
           </div>
+          <div class="spec-hint" aria-live="polite"><span class="hint-indicator"><i class="ri-hand-finger-line" aria-hidden="true"></i></span> Pulsa cualquier tarjeta inferior para intercambiarla con la principal.</div>
         </div>
-        <p class="section-footnote reveal"><i class="ri-information-line" aria-hidden="true"></i> Los servicios y horarios definitivos estarán sujetos a la programación de la Unidad Médica.</p>
+        <p class="services-note"><i class="ri-information-line" aria-hidden="true"></i> Las especialidades y su disponibilidad deberán confirmarse con la Unidad Médica antes de publicar el servicio.</p>
       </div>
     </section>
 
-    <section id="proceso" class="process-section section-space" aria-labelledby="processTitle">
-      <div class="container">
-        <div class="process-top reveal"><div><p class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> ASÍ DE SIMPLE</p><h2 id="processTitle">Tu atención empieza<br>con unos cuantos pasos<span class="red-dot">.</span></h2></div><p>Una experiencia pensada para que la comunidad universitaria pueda organizar su atención de forma clara y sencilla.</p></div>
-        <div class="process-grid">
-          <article class="process-card reveal"><span class="step-index">01</span><i class="ri-login-box-line" aria-hidden="true"></i><h3>Ingresa</h3><p>Accede con tu código institucional o DNI y contraseña.</p></article>
-          <article class="process-card reveal"><span class="step-index">02</span><i class="ri-stethoscope-line" aria-hidden="true"></i><h3>Explora</h3><p>Consulta especialidades, profesionales y horarios disponibles.</p></article>
-          <article class="process-card reveal"><span class="step-index">03</span><i class="ri-calendar-check-line" aria-hidden="true"></i><h3>Reserva</h3><p>Selecciona un horario libre y confirma tu cita médica.</p></article>
-          <article class="process-card reveal"><span class="step-index">04</span><i class="ri-notification-3-line" aria-hidden="true"></i><h3>Haz seguimiento</h3><p>Revisa el estado de tus citas y las indicaciones de atención.</p></article>
+    <!-- HORARIOS E INFORMACIÓN: collage, texturas y composición editorial. -->
+    <section class="information-section" id="horarios" aria-labelledby="infoTitle">
+      <div class="marble-grain" aria-hidden="true"></div><div class="grid-paper" aria-hidden="true"></div>
+      <div class="container information-layout">
+        <div class="collage-visual reveal">
+          <span class="collage-red-square" aria-hidden="true"></span>
+          <div class="collage-photo"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=950&q=85" alt="Profesional de la salud, imagen referencial" loading="lazy"></div>
+          <div class="collage-frame" aria-hidden="true"></div>
+          <span class="collage-mini collage-mini-one"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=280&q=65" alt="" loading="lazy"></span>
+          <span class="collage-mini collage-mini-two"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=280&q=65" alt="" loading="lazy"></span>
+          <blockquote class="collage-quote"><i class="ri-double-quotes-l" aria-hidden="true"></i><p>Tu salud y bienestar también forman parte de tu vida universitaria.</p><span>BIENESTAR UNIVERSITARIO — UNS</span></blockquote>
         </div>
-        <p class="process-note">Flujo previsto para el sistema cuando se integren las funciones de reservas y autenticación.</p>
-      </div>
-    </section>
-
-    <section id="horarios" class="information-section section-space" aria-labelledby="infoTitle">
-      <div class="grid-paper" aria-hidden="true"></div>
-      <div class="container information-grid">
-        <div class="editorial-visual reveal">
-          <span class="editorial-mini-label">BIENESTAR UNIVERSITARIO / UNS</span>
-          <div class="portrait-ring"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1050&q=85" loading="lazy" alt="Profesional del área de salud, imagen ilustrativa"></div>
-          <div class="quote-card"><i class="ri-double-quotes-l" aria-hidden="true"></i><p>Tu salud también forma parte de tu vida universitaria.</p><span></span></div>
-          <span class="little-square sq-one" aria-hidden="true"></span><span class="little-square sq-two" aria-hidden="true"></span>
-        </div>
-        <div class="information-content">
-          <p class="eyebrow reveal"><span class="eyebrow-line"></span> INFORMACIÓN PARA TI</p>
-          <h2 id="infoTitle" class="reveal">Organiza tu visita <em>con tranquilidad.</em></h2>
-          <article class="info-panel reveal">
-            <div class="panel-title"><span class="panel-icon"><i class="ri-calendar-2-line" aria-hidden="true"></i></span><h3>Horarios de atención</h3></div>
-            <div class="hours-grid"><div><span class="hours-label">Días de atención</span><strong>Lunes a viernes</strong></div><div><span class="hours-label">Mañana</span><strong>8:00 a. m. – 1:00 p. m.</strong><span class="hours-label space-top">Tarde</span><strong>2:00 p. m. – 5:30 p. m.</strong></div></div>
-            <p class="info-small">Horario mostrado en la versión inicial del proyecto. Confírmalo con Bienestar Universitario antes de acudir.</p>
-          </article>
-          <article class="info-panel reveal">
-            <div class="panel-title"><span class="panel-icon blue"><i class="ri-information-line" aria-hidden="true"></i></span><h3>Antes de tu atención</h3></div>
-            <ul class="info-list">
-              <li><i class="ri-check-line" aria-hidden="true"></i><span>Lleva tu <strong>DNI o código universitario.</strong></span></li>
-              <li><i class="ri-check-line" aria-hidden="true"></i><span>Revisa la fecha, hora y especialidad de tu cita.</span></li>
-              <li><i class="ri-check-line" aria-hidden="true"></i><span>Acude con anticipación al servicio médico.</span></li>
-              <li><i class="ri-check-line" aria-hidden="true"></i><span>Tus datos clínicos deberán tratarse de forma confidencial.</span></li>
-            </ul>
-          </article>
+        <div class="information-copy" id="informacion">
+          <span class="eyebrow reveal">TU VISITA A LA UNIDAD MÉDICA</span>
+          <h2 id="infoTitle" class="reveal">Estamos para <span>cuidarte.</span></h2>
+          <div class="info-panel reveal"><div class="panel-title"><i class="ri-time-line" aria-hidden="true"></i><h3>Horarios de atención</h3></div><div class="hours-layout"><div><small>DÍAS</small><strong>Lunes a viernes</strong></div><div><small>MAÑANA</small><strong>8:00 a. m. – 1:00 p. m.</strong><small>TARDE</small><strong>2:00 p. m. – 5:30 p. m.</strong></div></div><p class="hours-note">Horario referencial de la versión inicial. Confirma la atención antes de acudir.</p></div>
+          <div class="info-panel reveal"><div class="panel-title"><i class="ri-information-line" aria-hidden="true"></i><h3>Información importante</h3></div><ul class="info-list"><li><i class="ri-check-line"></i>Lleva tu DNI o código universitario.</li><li><i class="ri-check-line"></i>Acude puntualmente a la fecha de tu atención.</li><li><i class="ri-check-line"></i>Consulta previamente la disponibilidad de servicios.</li><li><i class="ri-check-line"></i>La información clínica se gestionará de manera confidencial.</li></ul></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <img class="punkuri-watermark footer-punkuri" src="https://www.uns.edu.pe/img/punkuri.png" alt="" aria-hidden="true">
+  <!-- Footer inspirado en el portal oficial: grafito, enlaces institucionales y gran marca de agua. -->
+  <footer class="site-footer" aria-label="Pie institucional">
+    <div class="footer-watermark" aria-hidden="true"><img src="https://www.uns.edu.pe/img/logo_rojo.png" alt=""></div>
     <div class="container footer-grid">
-      <div class="footer-brand"><div class="footer-brand-top"><img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="" width="57" height="57"><div><strong>UNS</strong><span>Universidad Nacional del Santa</span></div></div><p>Unidad de Servicio Médico<br>Bienestar Universitario</p></div>
-      <div class="footer-contact"><h3>Encuéntranos</h3><p><i class="ri-map-pin-2-line" aria-hidden="true"></i> Campus Universitario, Nuevo Chimbote</p><p><i class="ri-global-line" aria-hidden="true"></i> <a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer">www.uns.edu.pe</a></p></div>
-      <div class="footer-social"><h3>Conecta con la UNS</h3><p>Información y novedades institucionales.</p><div class="social-links"><a href="https://www.facebook.com/UNSChimbote" target="_blank" rel="noopener noreferrer" aria-label="UNS en Facebook"><i class="ri-facebook-fill" aria-hidden="true"></i></a><a href="https://www.instagram.com/unschimbote/" target="_blank" rel="noopener noreferrer" aria-label="UNS en Instagram"><i class="ri-instagram-line" aria-hidden="true"></i></a><a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer" aria-label="Sitio web de la UNS"><i class="ri-global-line" aria-hidden="true"></i></a></div></div>
+      <div class="footer-about"><h2>UNIVERSIDAD NACIONAL DEL SANTA</h2><p>Av. Pacífico 508 – Nuevo Chimbote, Áncash, Perú.</p><p>Campus I: Av. Universitaria S/N – Nuevo Chimbote.</p><p>Central telefónica: (043) 604451</p><p>Servicio Médico · Bienestar Universitario</p><div class="footer-social" aria-label="Redes sociales"><a href="https://www.facebook.com/UNSChimbote" target="_blank" rel="noopener noreferrer" aria-label="Facebook UNS"><i class="ri-facebook-fill"></i></a><a href="https://www.instagram.com/unschimbote/" target="_blank" rel="noopener noreferrer" aria-label="Instagram UNS"><i class="ri-instagram-line"></i></a><a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer" aria-label="Sitio web UNS"><i class="ri-global-line"></i></a></div><span class="footer-sign">UNS · EDUCACIÓN, INVESTIGACIÓN Y BIENESTAR</span></div>
+      <div class="footer-list"><h3>UNIVERSIDAD</h3><a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer">Portal institucional</a><a href="https://www.gob.pe/uns" target="_blank" rel="noopener noreferrer">Información institucional</a><a href="https://pure.uns.edu.pe/" target="_blank" rel="noopener noreferrer">Investigación UNS</a><a href="https://repositorio.uns.edu.pe/" target="_blank" rel="noopener noreferrer">Repositorio institucional</a></div>
+      <div class="footer-list"><h3>ENLACES DE INTERÉS</h3><a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer">Directorio</a><a href="https://www.uns.edu.pe/mesadepartes/" target="_blank" rel="noopener noreferrer">Mesa de partes digital</a><a href="https://www.uns.edu.pe/" target="_blank" rel="noopener noreferrer">Transparencia</a><a href="#inicio">Volver al inicio</a></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="currentYear">2026</span> Universidad Nacional del Santa.</span><span>Diseño académico · Sistema de Reservas Médicas</span></div>
+    <div class="container footer-bottom"><span>© <span id="currentYear">2026</span> Universidad Nacional del Santa · Proyecto académico</span><span>Sistema de Reservas Médicas UNS</span></div>
   </footer>
 </div>
