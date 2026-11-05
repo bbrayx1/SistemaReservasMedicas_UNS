@@ -40,112 +40,124 @@
           <h1 id="heroTitle">Iniciar sesión<span class="hero-dot">.</span></h1>
           <p class="hero-description">Bienvenido al Sistema de Reservas Médicas de la <strong>Universidad Nacional del Santa</strong>. Accede con tus credenciales institucionales para gestionar tu bienestar.</p>
           
-<form id="loginForm" class="login-form" novalidate>
+    <form id="loginForm" class="login-form" novalidate>
 
-  <!-- CÓDIGO UNIVERSITARIO -->
-  <div class="field">
-    <label class="sr-only" for="codigoUniversitario">
-      Código universitario
-    </label>
+      <!-- CÓDIGO UNIVERSITARIO -->
+      <div class="field">
+        <label class="sr-only" for="codigoUniversitario">
+          Código universitario
+        </label>
 
-    <div class="floating-input">
-      <div class="input-content">
-        <span class="floating-label">CÓDIGO UNIVERSITARIO</span>
-        <input
-          id="codigoUniversitario"
-          name="codigoUniversitario"
-          type="text"
-          inputmode="numeric"
-          maxlength="10"
-          placeholder="Ej. 0202414046"
-          required
-        >
-      </div>
-      <i class="ri-graduation-cap-line" aria-hidden="true"></i>
-    </div>
-  </div>
-
-  <!-- DNI -->
-  <div class="field">
-    <label class="sr-only" for="dni">DNI</label>
-
-    <div class="floating-input">
-      <div class="input-content">
-        <span class="floating-label">DNI</span>
-        <input
-          id="dni"
-          name="dni"
-          type="text"
-          inputmode="numeric"
-          maxlength="8"
-          placeholder="Ej. 12345678"
-          required
-        >
-      </div>
-      <i class="ri-id-card-line" aria-hidden="true"></i>
-    </div>
-  </div>
-
-  <!-- CONTRASEÑA -->
-  <div class="field">
-    <label class="sr-only" for="password">Contraseña</label>
-
-    <div class="floating-input">
-      <div class="input-content">
-        <span class="floating-label">CONTRASEÑA</span>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autocomplete="current-password"
-          placeholder="Ingresa tu contraseña"
-          required
-        >
+        <div class="floating-input">
+          <div class="input-content">
+            <span class="floating-label">CÓDIGO UNIVERSITARIO</span>
+            <input
+              id="codigoUniversitario"
+              name="codigoUniversitario"
+              type="text"
+              inputmode="numeric"
+              maxlength="10"
+              placeholder="Ej. 0202414046"
+              required
+            >
+          </div>
+          <i class="ri-graduation-cap-line" aria-hidden="true"></i>
+        </div>
       </div>
 
-      <button
-        type="button"
-        id="togglePassword"
-        class="show-password"
-        aria-label="Mostrar contraseña"
-        aria-pressed="false"
-      >
-        <i class="ri-eye-line" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
+      <!-- DNI -->
+      <div class="field">
+        <label class="sr-only" for="dni">DNI</label>
 
-  <!-- BOTONES -->
-  <div class="hero-actions">
-    <button id="btnSubmit" type="submit" class="submit-btn">
-      Ingresar al sistema
-      <i class="ri-arrow-right-line" aria-hidden="true"></i>
-    </button>
+        <div class="floating-input">
+          <div class="input-content">
+            <span class="floating-label">DNI</span>
+            <input
+              id="dni"
+              name="dni"
+              type="text"
+              inputmode="numeric"
+              maxlength="8"
+              placeholder="Ej. 12345678"
+              required
+            >
+          </div>
+          <i class="ri-id-card-line" aria-hidden="true"></i>
+        </div>
+      </div>
 
-    <a class="secondary-btn" href="#especialidades">
-      Explorar servicios
-      <i class="ri-arrow-down-line" aria-hidden="true"></i>
-    </a>
-  </div>
+        <!-- CONTRASEÑA -->
+        <div class="field">
+          <label class="sr-only" for="password">Contraseña</label>
 
-  <button type="button" id="btnRecovery" class="forgot-link">
-    ¿Olvidaste tu contraseña?
-  </button>
+          <div class="floating-input">
+            <div class="input-content">
+              <span class="floating-label">CONTRASEÑA</span>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Ingresa tu contraseña"
+                required
+              >
+            </div>
 
-  <p class="feedback-msg" id="feedbackMsg"
-     role="status" aria-live="polite"></p>
+            <button
+              type="button"
+              id="togglePassword"
+              class="show-password"
+              aria-label="Mostrar contraseña"
+              aria-pressed="false"
+            >
+              <i class="ri-eye-line" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
 
-  <p class="hero-disclaimer">
-    <i class="ri-shield-check-line" aria-hidden="true"></i>
-    Acceso exclusivo para usuarios autorizados de la UNS.
-  </p>
+        <!-- BOTONES -->
+        <div class="hero-actions">
+          <button id="btnSubmit" type="submit" class="submit-btn">
+            Ingresar al sistema
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </button>
 
-</form>
+          <a class="secondary-btn" href="#especialidades">
+            Explorar servicios
+            <i class="ri-arrow-down-line" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <button type="button" id="btnRecovery" class="forgot-link">
+          ¿Olvidaste tu contraseña?
+        </button>
+
+        <p class="feedback-msg" id="feedbackMsg"
+          role="status" aria-live="polite"></p>
+
+        <p class="hero-disclaimer">
+          <i class="ri-shield-check-line" aria-hidden="true"></i>
+          Acceso exclusivo para usuarios autorizados de la UNS.
+        </p>
+
+      </form>
 
         </div>
       </div>
       <a class="scroll-cue" href="#especialidades"><span>DESCUBRE NUESTRAS ESPECIALIDADES</span><i class="ri-arrow-down-line" aria-hidden="true"></i></a>
     </section>
+
+    <!-- Separador de galería de imágenes -->
+<section class="galeria-separador">
+    <!-- Imagen 1 -->
+    <img src="https://www.uns.edu.pe/vistas/bienestar-universitario/img/unidadmedica.jpg" alt="Unidad Médica">
+    <!-- Imagen 2 -->
+    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=800&q=80" alt="Médicos">
+    <!-- Imagen 3 -->
+    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Salud">
+    <!-- Imagen 4 -->
+    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Hospital">
+</section>
 
     <!-- ESPECIALIDADES: exactamente un espacio editorial principal + tres módulos intercambiables. -->
     <section class="specialties-section" id="especialidades" aria-labelledby="specialtiesTitle">

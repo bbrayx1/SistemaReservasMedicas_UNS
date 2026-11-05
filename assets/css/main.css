@@ -36,3 +36,27 @@ svg { display: block; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+.galeria-separador {
+    display: flex;
+    width: 100%;
+    height: 300px; /* Altura de la franja. Ajústala a tu gusto */
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    overflow: hidden; /* Evita que las imágenes se salgan del contenedor */
+}
+
+.galeria-separador img {
+    flex: 1; /* Hace que todas las imágenes midan exactamente lo mismo de ancho */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla */
+    min-width: 0; /* Previene desbordamientos en Flexbox */
+    transition: transform 0.4s ease, filter 0.4s ease; /* Animación suave */
+}
+
+/* Efecto piola: Al pasar el mouse, la imagen hace un ligero zoom */
+.galeria-separador img:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
