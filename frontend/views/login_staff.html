@@ -1,0 +1,78 @@
+<div class="staff-portal-wrapper fade-in-view">
+    <!-- Mitad Izquierda: Formulario Administrativo -->
+    <div class="staff-form-side">
+        <div class="staff-form-container">
+            <div class="staff-brand">
+                <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="UNS Logo" class="staff-logo">
+                <div class="staff-titles">
+                    <span>UNIVERSIDAD NACIONAL DEL SANTA</span>
+                    <strong>SISTEMA MÉDICO INTERNO</strong>
+                </div>
+            </div>
+
+            <div class="staff-header">
+                <span class="staff-badge"><i class="ri-admin-line"></i> Acceso Restringido</span>
+                <h1>Portal del Personal</h1>
+                <p>Ingresa tus credenciales administrativas. El sistema detectará automáticamente tu rol (Médico, Recepción o Administrador TI).</p>
+            </div>
+
+            <form id="staffLoginForm" class="staff-form" novalidate>
+                <!-- Identificador -->
+                <div class="staff-field">
+                    <label for="staffId">Identificador Institucional</label>
+                    <div class="staff-input-group">
+                        <i class="ri-profile-line"></i>
+                        <input type="text" id="staffId" name="staffId" placeholder="DNI o Código de Trabajador" required>
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="staff-field">
+                    <label for="staffPwd">Clave de Acceso</label>
+                    <div class="staff-input-group">
+                        <i class="ri-lock-password-line"></i>
+                        <input type="password" id="staffPwd" name="staffPwd" placeholder="••••••••" required>
+                        <button type="button" id="toggleStaffPwd" class="staff-eye-btn">
+                            <i class="ri-eye-off-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="staff-form-options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="staffRemember">
+                        <span class="checkmark"></span>
+                        <span class="label-text">Mantener sesión activa</span>
+                    </label>
+                    <a href="#" class="staff-forgot">¿Problemas de acceso?</a>
+                </div>
+
+                <button type="submit" id="btnStaffSubmit" class="staff-submit-btn">
+                    Autorizar Ingreso <i class="ri-arrow-right-line"></i>
+                </button>
+                
+                <div id="staffFeedbackMsg" class="feedback-msg"></div>
+            </form>
+
+            <div class="staff-footer">
+                <button type="button" onclick="AppRouter.loadView('login')" class="back-to-public">
+                    <i class="ri-arrow-left-line"></i> Volver al portal de estudiantes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mitad Derecha: Visual Corporativo Oscuro -->
+    <div class="staff-visual-side">
+        <div class="staff-visual-overlay"></div>
+        <div class="staff-visual-content">
+            <i class="ri-hospital-line staff-huge-icon"></i>
+            <h2>Gestión Médica Centralizada</h2>
+            <ul>
+                <li><i class="ri-check-line"></i> Control de Agendas y Turnos</li>
+                <li><i class="ri-check-line"></i> Historias Clínicas Electrónicas</li>
+                <li><i class="ri-check-line"></i> Reportes y Auditoría TI</li>
+            </ul>
+        </div>
+    </div>
+</div>

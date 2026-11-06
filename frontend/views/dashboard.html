@@ -1,0 +1,236 @@
+<div class="dashboard-layout fade-in-view">
+    
+    <!-- =====================================================================
+         BARRA LATERAL (SIDEBAR)
+         ===================================================================== -->
+    <aside class="dash-sidebar">
+        <div class="dash-brand">
+            <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Logo UNS" class="dash-logo">
+        </div>
+
+        <nav class="dash-nav">
+            <!-- Menú Principal -->
+            <a href="#" class="nav-item active">
+                <i class="ri-home-5-fill"></i> 
+                <span>Inicio</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-calendar-check-line"></i> 
+                <span>Mis Reservas</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-add-circle-line"></i> 
+                <span>Nuevo Turno</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-user-line"></i> 
+                <span>Mi Perfil</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-notification-3-line"></i> 
+                <span>Notificaciones</span> 
+                <span class="badge-count">2</span>
+            </a>
+            
+            <div class="nav-divider"></div>
+
+            <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
+                <i class="ri-logout-box-r-line"></i> 
+                <span>Cerrar Sesión</span>
+            </a>
+        </nav>
+
+        <!-- Ilustración de fondo en el sidebar (Opcional, estilo edificio UNS) -->
+        <div class="sidebar-bottom-art"></div>
+    </aside>
+
+    <!-- =====================================================================
+         CONTENIDO PRINCIPAL
+         ===================================================================== -->
+    <main class="dash-main-area">
+        
+        <!-- CABECERA SUPERIOR (TOPBAR) -->
+        <header class="dash-topbar">
+            <div class="search-wrapper">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Buscar servicio...">
+            </div>
+
+            <div class="topbar-actions">
+                <button class="topbar-btn notifications">
+                    <i class="ri-notification-3-line"></i>
+                    <span class="alert-dot"></span>
+                </button>
+                <div class="user-profile-menu">
+                    <div class="user-avatar">ES</div>
+                    <div class="user-info">
+                        <strong>Estudiante123<i class="ri-arrow-down-s-line"></i></strong>
+                        <span>Estudiante</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ÁREA DE SCROLL DEL DASHBOARD -->
+        <div class="dash-content-scroll">
+            
+            <!-- 1. Banner de Bienvenida -->
+            <section class="welcome-banner">
+                <div class="welcome-text">
+                    <h1>¡Hola, Estudiante123!</h1>
+                    <p>Bienvenido al sistema de reservas médicas<br>de la Universidad Nacional del Santa.</p>
+                    <hr class="red-line">
+                    <span class="slogan">Tu salud, <strong>nuestro compromiso.</strong></span>
+                </div>
+                <div class="welcome-image">
+                    <!-- Fotografía del Centro Médico UNS con corte diagonal vía CSS -->
+                    <img src="https://www.uns.edu.pe/recursos/noticias/e1a27d7ce4d4cbd5cd45f78b27333ab1.JPG" alt="Campus Médico UNS">
+                </div>
+            </section>
+
+            <!-- 2. Acciones Rápidas (4 Tarjetas) -->
+            <section class="quick-actions-grid">
+                <button class="action-card primary">
+                    <div class="icon-box"><i class="ri-calendar-add-line"></i></div>
+                    <div class="action-info">
+                        <strong>Nuevo Turno</strong>
+                        <span>Reserva una cita médica</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line arrow-icon"></i>
+                </button>
+
+                <button class="action-card">
+                    <div class="icon-box"><i class="ri-calendar-check-line"></i></div>
+                    <div class="action-info">
+                        <strong>Mis Reservas</strong>
+                        <span>Consulta tus citas</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line arrow-icon"></i>
+                </button>
+
+                <button class="action-card">
+                    <div class="icon-box"><i class="ri-file-list-3-line"></i></div>
+                    <div class="action-info">
+                        <strong>Mi Historial</strong>
+                        <span>Revisa tus atenciones</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line arrow-icon"></i>
+                </button>
+
+                <button class="action-card">
+                    <div class="icon-box"><i class="ri-question-line"></i></div>
+                    <div class="action-info">
+                        <strong>Preguntas Frecuentes</strong>
+                        <span>Resuelve tus dudas</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line arrow-icon"></i>
+                </button>
+            </section>
+
+            <!-- 3. Contenedor Dividido: Próxima Cita y Avisos -->
+            <section class="split-dashboard-widgets">
+                
+                <!-- Columna Izquierda: Próxima Cita -->
+                <div class="widget-box next-appointment">
+                    <div class="widget-header">
+                        <h3><i class="ri-calendar-event-fill"></i> Próxima Cita</h3>
+                        <a href="#" class="view-all-link">Ver todas <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                    
+                    <div class="appointment-card">
+                        <div class="doctor-illustration">
+                            <!-- Aquí va la ilustración de la doctora (se colocará vía CSS o img) -->
+                            <div class="illustration-placeholder">
+                                <i class="ri-nurse-fill"></i>
+                                <span class="cross-badge"><i class="ri-add-line"></i></span>
+                            </div>
+                        </div>
+                        <div class="appointment-details">
+                            <h4>Medicina General</h4>
+                            <ul class="appointment-specs">
+                                <li><i class="ri-calendar-line"></i> <strong>Fecha:</strong> 10 de Noviembre de 2026</li>
+                                <li><i class="ri-time-line"></i> <strong>Hora:</strong> 09:30 a.m.</li>
+                                <li><i class="ri-map-pin-line"></i> <strong>Consultorio:</strong> Consultorio N° 1 - Centro Médico UNS</li>
+                            </ul>
+                            <button class="btn-outline-red">
+                                <i class="ri-calendar-todo-line"></i> Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Avisos Importantes -->
+                <div class="widget-box notices-widget">
+                    <div class="widget-header">
+                        <h3><i class="ri-megaphone-fill"></i> Avisos Importantes</h3>
+                        <a href="#" class="view-all-link">Ver más <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                    
+                    <div class="notices-list">
+                        <div class="notice-item">
+                            <span class="notice-dot red"></span>
+                            <div class="notice-text">
+                                <span class="notice-date">06 Nov. 2026</span>
+                                <strong>Horario de atención médica</strong>
+                                <p>De lunes a viernes de 8:00 a.m. a 1:00 p.m.</p>
+                            </div>
+                        </div>
+
+                        <div class="notice-item">
+                            <span class="notice-dot blue"></span>
+                            <div class="notice-text">
+                                <span class="notice-date">03 Nov. 2026</span>
+                                <strong>Campaña de Salud Preventiva</strong>
+                                <p>Acércate al Centro Médico UNS.</p>
+                            </div>
+                        </div>
+
+                        <div class="notice-item">
+                            <span class="notice-dot light-blue"></span>
+                            <div class="notice-text">
+                                <span class="notice-date">28 Oct. 2026</span>
+                                <strong>Prevención de enfermedades</strong>
+                                <p>Cuida tu salud, cuida tu futuro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 4. Servicios Médicos -->
+            <section class="services-carousel-widget">
+                <div class="widget-header">
+                    <h3><i class="ri-heart-pulse-fill"></i> Servicios Médicos</h3>
+                    <a href="#" class="view-all-link">Ver todos los servicios <i class="ri-arrow-right-line"></i></a>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-pill"><i class="ri-stethoscope-line"></i> <span>Medicina General</span></div>
+                    <div class="service-pill"><i class="ri-tooth-line"></i> <span>Odontología</span></div>
+                    <div class="service-pill"><i class="ri-mental-health-line"></i> <span>Psicología</span></div>
+                    <div class="service-pill"><i class="ri-eye-line"></i> <span>Oftalmología</span></div>
+                    <div class="service-pill"><i class="ri-syringe-line"></i> <span>Vacunación</span></div>
+                    <div class="service-pill"><i class="ri-flask-line"></i> <span>Laboratorio Clínico</span></div>
+                </div>
+            </section>
+
+            <!-- 5. Banner Promocional Inferior -->
+            <section class="bottom-promo-banner">
+                <div class="promo-content">
+                    <div class="promo-icon-bg">
+                        <i class="ri-heart-pulse-line"></i>
+                    </div>
+                    <div class="promo-copy">
+                        <strong>Cuida tu salud, sigue estudiando</strong>
+                        <span>La UNS se preocupa por ti.</span>
+                    </div>
+                </div>
+                <button class="btn-solid-red">
+                    Conocer más <i class="ri-arrow-right-line"></i>
+                </button>
+            </section>
+
+        </div>
+    </main>
+</div>

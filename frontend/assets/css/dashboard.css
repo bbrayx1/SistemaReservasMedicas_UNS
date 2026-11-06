@@ -1,0 +1,819 @@
+/* ==========================================================================
+   DASHBOARD ESTUDIANTE - SISTEMA MÉDICO UNS
+   Diseño moderno, sombras suaves y bordes redondeados (Estilo UI/UX 2026)
+   ========================================================================== */
+
+/* Layout Principal (Sidebar + Contenido) */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc; /* Gris muy claro para resaltar las tarjetas blancas */
+    font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+/* ==========================================================================
+   1. BARRA LATERAL (SIDEBAR)
+   ========================================================================== */
+.dash-sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+    overflow: hidden; /* Oculta el excedente de las curvas de fondo */
+}
+
+.dash-brand {
+    padding: 30px 24px;
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+    align-items: center;
+}
+
+.dash-logo {
+    width: 150px; /* Aumentado para que el texto de la imagen sea legible */
+    height: auto;
+    object-fit: contain;
+}
+
+.dash-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-brand-text .uni-name {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--uns-red, #c8102e);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.dash-brand-text .uni-sub {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.dash-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 8px;
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Asegura que los enlaces y botones se superpongan al fondo */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-item i {
+    font-size: 1.25rem;
+}
+
+.nav-item:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+/* Estado Activo (Rojo UNS) */
+.nav-item.active {
+    background-color: var(--uns-red, #c8102e);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(200, 16, 46, 0.25);
+}
+
+.nav-item .badge-count {
+    margin-left: auto;
+    background-color: var(--uns-red, #c8102e);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.nav-divider {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 16px 0;
+}
+
+.nav-item.logout {
+    margin-bottom: 24px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.nav-item.logout:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Arte de fondo en el sidebar (Onda abstracta) */
+.sidebar-bottom-art {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 280px;
+    z-index: 0; /* Lo mantiene detrás de los elementos de navegación */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,200 L200,200 L200,80 C130,160 60,60 0,140 Z' fill='%23c8102e' opacity='0.08'/%3E%3Cpath d='M0,200 L200,200 L200,130 C120,190 50,100 0,180 Z' fill='%23a90d32' opacity='0.9'/%3E%3Cpath d='M0,200 L200,200 L200,170 C130,200 60,150 0,195 Z' fill='%23750b24'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+/* ==========================================================================
+   2. CONTENIDO PRINCIPAL Y TOPBAR
+   ========================================================================== */
+.dash-main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dash-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #f8fafc;
+    z-index: 10;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 10px 20px;
+    width: 320px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+}
+
+.search-wrapper i {
+    color: #94a3b8;
+    margin-right: 10px;
+}
+
+.search-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: #0f172a;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.topbar-btn {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+.topbar-btn:hover {
+    color: var(--uns-red, #c8102e);
+    border-color: #cbd5e1;
+}
+
+.alert-dot {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--uns-red, #c8102e);
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.user-profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    background-color: #fecdd3;
+    color: var(--uns-red, #c8102e);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 0.9rem;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.user-info span {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Área Scrolleable del Dashboard */
+.dash-content-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ==========================================================================
+   3. BANNER DE BIENVENIDA (Con corte diagonal)
+   ========================================================================== */
+.welcome-banner {
+    display: flex;
+    background-color: #e2e8f0; /* Fondo azulado muy tenue */
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 220px;
+}
+
+.welcome-text {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-text h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.welcome-text p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.red-line {
+    border: none;
+    height: 3px;
+    width: 40px;
+    background-color: var(--uns-red, #c8102e);
+    margin: 0 0 16px 0;
+    border-radius: 2px;
+}
+
+.slogan {
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.slogan strong {
+    color: var(--uns-red, #c8102e);
+}
+
+.welcome-image {
+    flex: 1;
+    position: relative;
+    /* Efecto de corte diagonal hacia la izquierda */
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   4. TARJETAS DE ACCIONES RÁPIDAS
+   ========================================================================== */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.action-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.06);
+    border-color: #cbd5e1;
+}
+
+.action-card .icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #f1f5f9;
+    color: #3b82f6; /* Azul base */
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+}
+
+.action-card.primary .icon-box {
+    background-color: var(--uns-red, #c8102e);
+    color: #ffffff;
+}
+
+.action-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-info strong {
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.action-info span {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.arrow-icon {
+    color: #94a3b8;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   5. WIDGETS DIVIDIDOS (Próxima Cita & Avisos)
+   ========================================================================== */
+.split-dashboard-widgets {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+}
+
+.widget-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.widget-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.widget-header h3 i {
+    color: var(--uns-red, #c8102e);
+}
+
+.view-all-link {
+    font-size: 0.85rem;
+    color: var(--uns-red, #c8102e);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Tarjeta Interna Próxima Cita */
+.appointment-card {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.doctor-illustration {
+    width: 140px;
+    height: 140px;
+    background-color: #fee2e2;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.illustration-placeholder {
+    font-size: 4rem;
+    color: var(--uns-red, #c8102e);
+    position: relative;
+}
+
+.cross-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    color: var(--uns-red, #c8102e);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.appointment-details {
+    flex: 1;
+}
+
+.appointment-details h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.appointment-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.appointment-specs li {
+    font-size: 0.85rem;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.appointment-specs li i {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.btn-outline-red {
+    background: transparent;
+    border: 1px solid var(--uns-red, #c8102e);
+    color: var(--uns-red, #c8102e);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-red:hover {
+    background: #fef2f2;
+}
+
+/* Avisos Importantes */
+.notices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.notice-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+}
+
+.notice-dot.red { background-color: var(--uns-red, #c8102e); }
+.notice-dot.blue { background-color: #3b82f6; }
+.notice-dot.light-blue { background-color: #0ea5e9; }
+
+.notice-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.notice-date {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-bottom: 2px;
+}
+
+.notice-text strong {
+    font-size: 0.9rem;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.notice-text p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ==========================================================================
+   6. SERVICIOS MÉDICOS
+   ========================================================================== */
+.services-carousel-widget {
+    background-color: transparent;
+}
+
+.services-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.services-grid::-webkit-scrollbar {
+    height: 6px;
+}
+.services-grid::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.service-pill {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 130px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02);
+}
+
+.service-pill:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.service-pill i {
+    font-size: 2rem;
+    color: var(--uns-red, #c8102e);
+    background: #fef2f2;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.service-pill span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0f172a;
+    text-align: center;
+}
+
+/* ==========================================================================
+   7. PROMO BANNER INFERIOR
+   ========================================================================== */
+.bottom-promo-banner {
+    background: linear-gradient(135deg, #fef2f2 0%, #ffe4e6 100%);
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.promo-icon-bg {
+    width: 56px;
+    height: 56px;
+    background-color: var(--uns-red, #c8102e);
+    color: #ffffff;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 20px rgba(200, 16, 46, 0.2);
+}
+
+.promo-copy {
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-copy strong {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.promo-copy span {
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.btn-solid-red {
+    background-color: var(--uns-red, #c8102e);
+    color: #ffffff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(200, 16, 46, 0.2);
+}
+
+.btn-solid-red:hover {
+    background-color: #9e0b22;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE (Tablets y Móviles)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .split-dashboard-widgets {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dash-sidebar {
+        position: fixed;
+        transform: translateX(-100%); /* Oculto por defecto en móvil */
+        transition: transform 0.3s ease;
+    }
+    /* Clase para abrir menú en móvil */
+    .dash-sidebar.open {
+        transform: translateX(0);
+    }
+    .dash-topbar {
+        padding: 16px 20px;
+    }
+    .search-wrapper {
+        width: 200px;
+    }
+    .dash-content-scroll {
+        padding: 0 20px 20px;
+    }
+    .welcome-banner {
+        flex-direction: column;
+    }
+    .welcome-image {
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        height: 150px;
+    }
+    .bottom-promo-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   SISTEMA DE TOASTS (NOTIFICACIONES FLOTANTES)
+   ========================================================================== */
+#toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.custom-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    border-left: 4px solid #94a3b8;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0f172a;
+    min-width: 280px;
+}
+
+.custom-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.custom-toast i {
+    font-size: 1.4rem;
+}
+
+/* Colores según el tipo de acción */
+.toast-success {
+    border-left-color: #10b981;
+}
+.toast-success i {
+    color: #10b981;
+}
+
+.toast-info {
+    border-left-color: var(--uns-red, #c8102e);
+}
+.toast-info i {
+    color: var(--uns-red, #c8102e);
+}

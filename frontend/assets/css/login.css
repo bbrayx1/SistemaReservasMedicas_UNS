@@ -1617,3 +1617,324 @@
     flex-direction: column;
   }
 }
+
+/* ==========================================================================
+   PORTAL DE TRABAJADORES (STAFF LOGIN)
+   ========================================================================== */
+.staff-portal-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.staff-form-side {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.staff-form-container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.staff-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.staff-logo {
+    height: 48px;
+    width: auto;
+}
+
+.staff-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-titles span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #727d90;
+    letter-spacing: 0.1em;
+}
+
+.staff-titles strong {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--uns-red, #a90d32);
+}
+
+.staff-header {
+    margin-bottom: 30px;
+}
+
+.staff-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.staff-header h1 {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #161a27;
+    margin: 0 0 10px;
+    letter-spacing: -0.03em;
+}
+
+.staff-header p {
+    font-size: 0.85rem;
+    color: #727d90;
+    line-height: 1.6;
+}
+
+.staff-field {
+    margin-bottom: 20px;
+}
+
+.staff-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #161a27;
+    margin-bottom: 8px;
+}
+
+.staff-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.staff-input-group:focus-within {
+    border-color: var(--uns-red, #a90d32);
+    box-shadow: 0 0 0 4px rgba(169, 13, 50, 0.1);
+    background: #ffffff;
+}
+
+.staff-input-group i.ri-profile-line,
+.staff-input-group i.ri-lock-password-line {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.staff-input-group:focus-within i.ri-profile-line,
+.staff-input-group:focus-within i.ri-lock-password-line {
+    color: var(--uns-red, #a90d32);
+}
+
+.staff-input-group input {
+    width: 100%;
+    padding: 16px 40px 16px 46px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    font-size: 0.9rem;
+    color: #161a27;
+    font-weight: 600;
+}
+
+.staff-eye-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.staff-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Checkbox personalizado */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: var(--uns-red, #a90d32);
+    border-color: var(--uns-red, #a90d32);
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+    content: '\eb7a'; /* Icono de check de RemixIcon */
+    font-family: 'remixicon';
+    color: white;
+    font-size: 12px;
+}
+
+.label-text {
+    font-size: 0.8rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.staff-forgot {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.staff-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #161a27;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(22, 26, 39, 0.15);
+}
+
+.staff-submit-btn:hover {
+    background-color: var(--uns-red, #a90d32);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(169, 13, 50, 0.25);
+}
+
+.staff-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.back-to-public {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.back-to-public:hover {
+    color: #161a27;
+}
+
+/* ==========================================================================
+   MITAD DERECHA (VISUAL CORPORATIVO)
+   ========================================================================== */
+.staff-visual-side {
+    width: 55%;
+    position: relative;
+    background: url('https://www.uns.edu.pe/recursos/noticias/e1a27d7ce4d4cbd5cd45f78b27333ab1.JPG') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staff-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(22, 26, 39, 0.96) 0%, rgba(169, 13, 50, 0.88) 100%);
+}
+
+.staff-visual-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 420px;
+}
+
+.staff-huge-icon {
+    font-size: 4rem;
+    color: #fca5a5;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.staff-visual-content h2 {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.staff-visual-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.staff-visual-content li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.staff-visual-content li i {
+    color: #fca5a5;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 920px) {
+    .staff-visual-side { display: none; }
+    .staff-form-side { width: 100%; padding: 24px; }
+}

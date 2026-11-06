@@ -175,7 +175,7 @@ initForm() {
     feedback('Comunícate con Bienestar Universitario o Soporte TI de la UNS.');
   });
 
-  form.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (!/^\d{10}$/.test(codigo.value.trim())) {
@@ -196,9 +196,21 @@ initForm() {
       return;
     }
 
-    feedback(
-      'Datos completos. La autenticación estará disponible al integrar la base de datos.'
-    );
+    // 1. Opcional: Mensaje de que está procesando
+    feedback('Verificando credenciales...', 'info'); 
+    
+    // (Si tienes la variable de tu botón, aquí lo deshabilitas para que no hagan doble clic)
+    // document.getElementById('btnSubmit').disabled = true;
+
+    // 2. AQUÍ VA EL SETTIMEOUT SIMULANDO LA CONEXIÓN A LA BD
+    setTimeout(() => {
+        // Mensaje de éxito
+        feedback('Datos validados. Ingresando al sistema...', 'success');
+        
+        // 3. La redirección hacia el dashboard
+        AppRouter.loadView('dashboard');
+        
+    }, 1000); // 1000 milisegundos = 1 segundo de espera
   });
 }
 
