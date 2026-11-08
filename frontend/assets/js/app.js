@@ -8,7 +8,7 @@ const AppRouter = {
 
  async loadView(viewName) {
         // 1. Validar qué vistas están permitidas cargar
-        const allowedViews = ['login', 'login_staff', 'dashboard'];
+        const allowedViews = ['login', 'login_staff', 'dashboard', 'perfil_usuario'];
         if (!allowedViews.includes(viewName)) return;
 
         try {
@@ -27,6 +27,9 @@ const AppRouter = {
             }
             if (viewName === 'dashboard' && typeof DashboardController !== 'undefined') {
                 DashboardController.init();
+            }
+            if (viewName === 'perfil_usuario' && typeof PerfilUsuarioController !== 'undefined') {
+                PerfilUsuarioController.init();
             }
 
         } catch (error) {

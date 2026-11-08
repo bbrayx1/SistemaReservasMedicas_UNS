@@ -1,0 +1,237 @@
+<div class="profile-shell">
+  <aside class="profile-sidebar" aria-label="Menú principal">
+    <div class="profile-brand">
+      <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Escudo UNS" width="46" height="46">
+      <span>Servicio Médico <small>UNIVERSIDAD NACIONAL DEL SANTA</small></span>
+    </div>
+
+    <nav class="profile-navigation" aria-label="Navegación del estudiante">
+      <span class="profile-nav-caption">MI ESPACIO</span>
+      <button type="button" class="profile-nav-item" data-profile-route="dashboard">
+        <i class="ri-home-5-line" aria-hidden="true"></i><span>Inicio</span>
+      </button>
+      <button type="button" class="profile-nav-item" disabled title="Disponible próximamente">
+        <i class="ri-calendar-check-line" aria-hidden="true"></i><span>Mis reservas</span>
+      </button>
+      <button type="button" class="profile-nav-item" disabled title="Disponible próximamente">
+        <i class="ri-add-circle-line" aria-hidden="true"></i><span>Nuevo turno</span>
+      </button>
+      <button type="button" class="profile-nav-item is-active" aria-current="page">
+        <i class="ri-user-3-fill" aria-hidden="true"></i><span>Mi perfil</span>
+      </button>
+      <div class="profile-nav-rule"></div>
+      <button type="button" class="profile-nav-item profile-logout" id="profileLogout">
+        <i class="ri-logout-box-r-line" aria-hidden="true"></i><span>Cerrar sesión</span>
+      </button>
+    </nav>
+    <div class="profile-sidebar-foot">UNS <span>·</span> TU SALUD, NUESTRO COMPROMISO</div>
+  </aside>
+
+  <div class="profile-workspace">
+    <header class="profile-topbar">
+      <button type="button" class="profile-back" data-profile-route="dashboard">
+        <i class="ri-arrow-left-line" aria-hidden="true"></i> Volver al inicio
+      </button>
+      <span class="profile-topbar-label">
+        <i class="ri-shield-user-line" aria-hidden="true"></i> Portal del estudiante
+      </span>
+    </header>
+
+    <main class="profile-main">
+      <div class="profile-page-heading">
+        <div>
+          <span class="profile-kicker">TU ESPACIO PERSONAL</span>
+          <h1>Mi perfil<span>.</span></h1>
+        </div>
+        <p>Tu información, a tu manera.</p>
+      </div>
+
+      <section class="profile-hero" aria-label="Resumen del perfil">
+        <div class="profile-hero-decor" aria-hidden="true"></div>
+        <button type="button" id="abrirEditorFoto" class="profile-avatar-button"
+                aria-label="Configurar foto de perfil">
+          <span class="profile-avatar">
+            <img id="fotoPerfil" alt="Foto de perfil" hidden>
+            <span id="fotoPerfilVacia" class="profile-avatar-empty" aria-hidden="true">
+              <i class="ri-user-3-line"></i>
+            </span>
+            <span class="profile-avatar-overlay">
+              <i class="ri-camera-line" aria-hidden="true"></i> Configurar foto
+            </span>
+          </span>
+          <span class="profile-avatar-hint">
+            <i class="ri-camera-line" aria-hidden="true"></i> Editar foto
+          </span>
+        </button>
+        <div class="profile-hero-copy">
+          <span class="profile-hero-eyebrow">PERFIL DE ESTUDIANTE</span>
+          <h2>Estudiante de ejemplo</h2>
+          <p>Universidad Nacional del Santa</p>
+          <span class="profile-code">
+            <i class="ri-graduation-cap-line" aria-hidden="true"></i> Código 0202414046
+          </span>
+        </div>
+        <span class="profile-hero-mark" aria-hidden="true">UNS</span>
+      </section>
+
+      <div class="profile-tabs" role="tablist" aria-label="Secciones del perfil">
+        <button type="button" class="profile-tab is-active" id="tabDatos" role="tab"
+                aria-selected="true" aria-controls="panelDatos" tabindex="0">
+          <i class="ri-user-settings-line" aria-hidden="true"></i> Datos personales
+        </button>
+        <button type="button" class="profile-tab" id="tabSeguridad" role="tab"
+                aria-selected="false" aria-controls="panelSeguridad" tabindex="-1">
+          <i class="ri-lock-password-line" aria-hidden="true"></i> Seguridad
+        </button>
+      </div>
+
+      <section class="profile-panel" id="panelDatos" role="tabpanel" aria-labelledby="tabDatos">
+        <div class="profile-section-heading">
+          <div>
+            <span class="profile-kicker">INFORMACIÓN DE LA CUENTA</span>
+            <h2>Datos personales</h2>
+          </div>
+          <span class="profile-section-note">
+            <i class="ri-information-line" aria-hidden="true"></i> Datos de ejemplo
+          </span>
+        </div>
+        <div class="profile-data-grid">
+          <article class="profile-data-card">
+            <span class="profile-card-icon"><i class="ri-user-line" aria-hidden="true"></i></span>
+            <div><small>NOMBRE COMPLETO</small><strong>Estudiante de ejemplo</strong></div>
+          </article>
+          <article class="profile-data-card">
+            <span class="profile-card-icon"><i class="ri-graduation-cap-line" aria-hidden="true"></i></span>
+            <div><small>CÓDIGO UNIVERSITARIO</small><strong>0202414046</strong></div>
+          </article>
+          <article class="profile-data-card">
+            <span class="profile-card-icon"><i class="ri-id-card-line" aria-hidden="true"></i></span>
+            <div><small>DNI</small><strong>12345678</strong></div>
+          </article>
+          <article class="profile-data-card">
+            <span class="profile-card-icon"><i class="ri-mail-line" aria-hidden="true"></i></span>
+            <div><small>CORREO INSTITUCIONAL</small><strong>estudiante@uns.edu.pe</strong></div>
+          </article>
+        </div>
+        <p class="profile-info-note">
+          <i class="ri-shield-check-line" aria-hidden="true"></i>
+          La información de esta pantalla es demostrativa hasta conectar el sistema con la base de datos.
+        </p>
+      </section>
+
+      <section class="profile-panel" id="panelSeguridad" role="tabpanel"
+               aria-labelledby="tabSeguridad" hidden>
+        <div class="profile-section-heading">
+          <div>
+            <span class="profile-kicker">PROTEGE TU ACCESO</span>
+            <h2>Cambiar contraseña</h2>
+          </div>
+        </div>
+        <div class="profile-security-card">
+          <div class="profile-security-intro">
+            <span class="profile-security-icon">
+              <i class="ri-lock-2-line" aria-hidden="true"></i>
+            </span>
+            <div>
+              <h3>Seguridad de la cuenta</h3>
+              <p>Escribe tu contraseña actual y confirma la nueva.</p>
+            </div>
+          </div>
+          <form id="formCambiarPassword">
+            <label for="passwordActual">Contraseña actual</label>
+            <input id="passwordActual" name="passwordActual" type="password"
+                   autocomplete="current-password" required>
+
+            <label for="passwordNueva">Nueva contraseña</label>
+            <input id="passwordNueva" name="passwordNueva" type="password"
+                   autocomplete="new-password" required>
+
+            <label for="passwordConfirmacion">Confirmar nueva contraseña</label>
+            <input id="passwordConfirmacion" name="passwordConfirmacion" type="password"
+                   autocomplete="new-password" required>
+
+            <button type="submit" class="profile-primary-button">
+              <i class="ri-lock-password-line" aria-hidden="true"></i> Verificar datos
+            </button>
+            <p id="mensajePassword" class="profile-form-message" role="status"
+               aria-live="polite"></p>
+          </form>
+          <p class="profile-security-note">
+            La modificación real de la contraseña estará disponible cuando se conecte el servidor.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="editorFoto" class="profile-photo-dialog" aria-labelledby="editorFotoTitulo">
+    <div class="profile-dialog-header">
+      <div>
+        <span class="profile-kicker">TU IMAGEN</span>
+        <h2 id="editorFotoTitulo">Configurar foto</h2>
+        <p>Elige cómo aparecerá en tu perfil.</p>
+      </div>
+      <button type="button" id="cerrarEditorFoto" class="profile-icon-button"
+              aria-label="Cerrar editor">
+        <i class="ri-close-line" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="profile-editor-grid">
+      <div class="profile-editor-original">
+        <h3>Imagen completa</h3>
+        <div class="profile-editor-original-stage">
+          <img id="fotoCompleta" alt="Imagen completa seleccionada" hidden>
+          <div id="fotoOriginalVacia" class="profile-editor-empty">
+            <i class="ri-image-add-line" aria-hidden="true"></i>
+            <span>Selecciona una foto para comenzar</span>
+          </div>
+        </div>
+        <p>La imagen original aparece aquí para que puedas elegir el encuadre.</p>
+      </div>
+
+      <div class="profile-editor-crop">
+        <h3>Vista previa circular</h3>
+        <div class="profile-editor-crop-stage">
+          <canvas id="lienzoFoto" width="360" height="360"
+                  aria-label="Arrastra para ajustar el recorte" hidden></canvas>
+          <div id="fotoRecorteVacia" class="profile-editor-empty">
+            <i class="ri-user-3-line" aria-hidden="true"></i>
+          </div>
+        </div>
+        <label for="zoomFoto">
+          Zoom <output id="valorZoom" for="zoomFoto">100 %</output>
+        </label>
+        <input id="zoomFoto" type="range" min="1" max="3" step="0.01" value="1" disabled>
+        <p>Arrastra la vista circular para centrar la foto.</p>
+      </div>
+    </div>
+
+    <p id="mensajeFoto" class="profile-editor-message" role="status"
+       aria-live="polite"></p>
+
+    <div class="profile-editor-actions">
+      <div class="profile-editor-tools">
+        <button type="button" id="cambiarFoto" class="profile-soft-button">
+          <i class="ri-upload-2-line" aria-hidden="true"></i> Seleccionar foto
+        </button>
+        <button type="button" id="girarFoto" class="profile-soft-button" disabled>
+          <i class="ri-clockwise-line" aria-hidden="true"></i> Girar
+        </button>
+        <button type="button" id="quitarFoto"
+                class="profile-soft-button profile-remove-button" disabled>
+          <i class="ri-delete-bin-line" aria-hidden="true"></i> Quitar
+        </button>
+      </div>
+      <div class="profile-editor-confirm">
+        <button type="button" id="cancelarFoto" class="profile-text-button">Cancelar</button>
+        <button type="button" id="guardarFoto" class="profile-primary-button">
+          <i class="ri-check-line" aria-hidden="true"></i> Guardar cambios
+        </button>
+      </div>
+    </div>
+
+    <input id="archivoFoto" type="file" accept="image/jpeg,image/png,image/webp"
+           hidden aria-label="Seleccionar archivo de imagen">
+  </dialog>
+</div>
