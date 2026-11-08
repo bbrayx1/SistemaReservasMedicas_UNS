@@ -1,0 +1,265 @@
+/* =========================================
+   ESTILOS: DASHBOARD ALINEADO AL DISEÑO ESTUDIANTE
+   ========================================= */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa; /* Fondo gris súper claro */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR CLARO --- */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    border-right: 1px solid #eaeaea;
+    position: relative;
+}
+
+.sidebar-header {
+    padding: 0 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-header .logo {
+    width: 50px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    color: #a90d32;
+    margin: 0;
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 15px;
+}
+
+.sidebar-nav a {
+    color: #6c757d;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 12px; /* Botones redondeados estilo píldora */
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav a i {
+    font-size: 1.2rem;
+}
+
+.sidebar-nav a:hover {
+    background-color: #f1f3f5;
+    color: #333;
+}
+
+.sidebar-nav a.active {
+    background-color: #a90d32;
+    color: #ffffff;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Barra superior (Topbar) */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
+}
+
+.search-bar {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    color: #333;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    cursor: pointer;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 6px 16px 6px 6px;
+    border-radius: 30px;
+    border: 1px solid #eaeaea;
+    cursor: pointer;
+}
+
+.user-avatar {
+    background: #ffcdd2;
+    color: #a90d32;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.user-info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info-text strong {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.user-info-text span {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Banner de Bienvenida */
+.welcome-banner {
+    background-color: #eef2f6; /* Tono celeste/gris claro */
+    margin: 0 40px 30px;
+    padding: 30px 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-text h1 {
+    font-size: 2rem;
+    color: #111;
+    margin: 0 0 10px 0;
+}
+
+.welcome-text p {
+    color: #555;
+    margin: 0 0 15px 0;
+}
+
+.welcome-text .highlight {
+    color: #a90d32;
+    font-weight: bold;
+}
+
+/* Tarjetas (Cards) */
+.content-section {
+    padding: 0 40px 40px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    margin-bottom: 25px;
+    border: 1px solid #f4f4f4;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h3 i {
+    color: #a90d32;
+}
+
+/* Tablas con diseño limpio */
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.data-table th {
+    text-align: left;
+    color: #888;
+    font-weight: 500;
+    padding: 0 15px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table td {
+    background: #fafbfa;
+    padding: 15px;
+}
+
+.data-table tr td:first-child { border-radius: 12px 0 0 12px; }
+.data-table tr td:last-child { border-radius: 0 12px 12px 0; }
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.waiting { background: #fff3cd; color: #856404; }
+.in-progress { background: #cce5ff; color: #004085; }
+
+.btn-sm {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: white;
+}
+.btn-success { background: #a90d32; }
+.btn-secondary { background: #6c757d; }

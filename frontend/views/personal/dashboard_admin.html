@@ -1,0 +1,71 @@
+<div class="dashboard-container fade-in-view">
+    <!-- Sidebar Claro con Logo Oficial -->
+    <aside class="sidebar">
+        <div class="sidebar-header" style="justify-content: center; padding: 25px 20px 20px;">
+            <!-- Usamos el logo oficial de la UNS -->
+            <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="UNS" style="height: 55px;">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active"><i class="ri-dashboard-line"></i> Panel General</a>
+            <a href="#"><i class="ri-user-settings-line"></i> Gestión Médicos</a>
+            <a href="#"><i class="ri-bar-chart-box-line"></i> Reportes</a>
+            <a href="#" onclick="AppRouter.logout(); return false;"><i class="ri-logout-box-line"></i> Cerrar Sesión</a>
+        </nav>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="top-header">
+            <div class="search-bar">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Buscar reportes o usuarios...">
+            </div>
+            
+            <div class="top-actions">
+                <div class="icon-btn"><i class="ri-notification-3-line"></i></div>
+                <div class="user-profile">
+                    <div class="user-avatar" style="background: #e3f2fd; color: #0d47a1;">AD</div>
+                    <div class="user-info-text">
+                        <strong>Administrador</strong>
+                        <span>Sistemas TI</span>
+                    </div>
+                    <i class="ri-arrow-down-s-line" style="color: #888; margin-right: 5px;"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Banner de Bienvenida -->
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h1>¡Hola, Administrador!</h1>
+                <p>Supervisa el rendimiento del sistema médico<br>y la carga de atención diaria.</p>
+                <span class="highlight">Sistemas en línea y operativos.</span>
+            </div>
+            <!-- Imagen representativa de tecnología/datos -->
+            <div class="welcome-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=250&q=80" alt="Análisis de datos" style="border-radius: 15px; height: 120px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div class="card">
+                    <h3><i class="ri-pie-chart-2-line"></i> Atenciones Mensuales (2026)</h3>
+                    <!-- Contenedor del gráfico de barras -->
+                    <div style="position: relative; height: 250px; width: 100%; margin-top: 15px;">
+                        <canvas id="citasMesChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="ri-stethoscope-line"></i> Demanda por Especialidad</h3>
+                    <!-- Contenedor del gráfico de dona -->
+                    <div style="position: relative; height: 250px; width: 100%; margin-top: 15px;">
+                        <canvas id="especialidadesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
