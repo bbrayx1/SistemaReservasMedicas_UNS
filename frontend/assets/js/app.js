@@ -1,20 +1,27 @@
 const AppRouter = {
-  rootElement: null,
+    rootElement: null,
 
-  init() {
-    this.rootElement = document.getElementById('app-root');
-    this.loadView('login');
-  },
+    init() {
+        this.rootElement = document.getElementById('app-root');
+        this.loadView('login');
+    },
 
- async loadView(viewName) {
-        // 1. Validar qué vistas están permitidas cargar
+    async loadView(viewName) {
+        /*1. Validar qué vistas están permitidas cargar
+
+        version anterior---------------------
         const allowedViews = ['login', 'login_staff', 'dashboard', 'perfil_usuario', 'personal/dashboard_admin', 'personal/dashboard_recepcion'];
+        */
+
+        //nueva version (8/11 10pm)-------------
+        const allowedViews = ['login', 'login_staff', 'dashboard', 'perfil_usuario', 'nuevo_turno', 'mis_reservas', 'personal/dashboard_admin', 'personal/dashboard_recepcion'];
+
         if (!allowedViews.includes(viewName)) return;
 
         try {
             const response = await fetch(`views/${viewName}.html`, { cache: 'no-cache' });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
+
             // Inyectar el HTML en el contenedor principal
             this.rootElement.innerHTML = await response.text();
 
@@ -31,7 +38,16 @@ const AppRouter = {
             if (viewName === 'perfil_usuario' && typeof PerfilUsuarioController !== 'undefined') {
                 PerfilUsuarioController.init();
             }
-            
+
+            //AGREGADOS (8/11 10pm)---------------------
+            if (viewName === 'nuevo_turno' && typeof NuevoTurnoController !== 'undefined') {
+                NuevoTurnoController.init();
+            }
+            if (viewName === 'mis_reservas' && typeof MisReservasController !== 'undefined') {
+                MisReservasController.init();
+            }
+            //-------------------------------
+
             // 3. Inicializar gráficos si la vista es el dashboard del admin
             if (viewName === 'personal/dashboard_admin') {
                 // Pequeño retardo para asegurar que el DOM ya inyectó los canvas
@@ -80,7 +96,7 @@ const AppRouter = {
 
     // Función para cerrar sesión
     logout() {
-        if(confirm('¿Estás seguro que deseas cerrar tu sesión?')) {
+        if (confirm('¿Estás seguro que deseas cerrar tu sesión?')) {
             console.log("Sesión cerrada.");
             this.loadView('login');
         }
@@ -92,37 +108,37 @@ document.addEventListener('DOMContentLoaded', () => AppRouter.init());
 // Validar login del personal e inyectar vistas dinámicamente
 document.addEventListener('submit', (e) => {
     if (e.target && e.target.id === 'staffLoginForm') {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const usuario = document.getElementById('staffId').value.toLowerCase().trim();
         const feedbackMsg = document.getElementById('staffFeedbackMsg');
         const btnSubmit = document.getElementById('btnStaffSubmit');
-        
-        feedbackMsg.textContent = ''; 
+
+        feedbackMsg.textContent = '';
 
         if (usuario === 'admin') {
             feedbackMsg.textContent = 'Credenciales validadas. Ingresando...';
-            feedbackMsg.style.color = '#28a745'; 
-            btnSubmit.disabled = true; 
-            
+            feedbackMsg.style.color = '#28a745';
+            btnSubmit.disabled = true;
+
             setTimeout(() => {
                 // Usamos el enrutador en lugar de recargar la página
-                AppRouter.loadView('personal/dashboard_admin'); 
+                AppRouter.loadView('personal/dashboard_admin');
             }, 1000);
 
         } else if (usuario === 'recepcion' || usuario === 'recepción') {
             feedbackMsg.textContent = 'Credenciales validadas. Ingresando...';
-            feedbackMsg.style.color = '#28a745'; 
+            feedbackMsg.style.color = '#28a745';
             btnSubmit.disabled = true;
-            
+
             setTimeout(() => {
                 AppRouter.loadView('personal/dashboard_recepcion');
             }, 1000);
 
         } else {
             feedbackMsg.textContent = 'Usuario no válido. Prueba escribiendo "admin" o "recepcion".';
-            feedbackMsg.style.color = '#ff4d4f'; 
-            
+            feedbackMsg.style.color = '#ff4d4f';
+
             // Rehabilitar el botón si hubo error para que pueda volver a intentar
             btnSubmit.disabled = false;
         }
