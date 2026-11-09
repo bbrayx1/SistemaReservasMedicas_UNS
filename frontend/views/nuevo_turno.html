@@ -1,0 +1,134 @@
+<div class="dashboard-layout fade-in-view">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="dash-sidebar">
+        <div class="dash-brand">
+            <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Logo UNS" class="dash-logo">
+        </div>
+        <nav class="dash-nav">
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('dashboard')">
+                <i class="ri-home-5-line"></i><span>Inicio</span>
+            </a>
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('mis_reservas')">
+                <i class="ri-calendar-check-line"></i><span>Mis Reservas</span>
+            </a>
+            <a href="#" class="nav-item active" onclick="event.preventDefault(); AppRouter.loadView('nuevo_turno')">
+                <i class="ri-add-circle-fill"></i><span>Nuevo Turno</span>
+            </a>
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
+                <i class="ri-user-line"></i><span>Mi Perfil</span>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
+                <i class="ri-logout-box-r-line"></i><span>Cerrar Sesión</span>
+            </a>
+        </nav>
+        <div class="sidebar-bottom-art"></div>
+    </aside>
+
+    <!-- ============ CONTENIDO ============ -->
+    <main class="dash-main-area">
+        <header class="dash-topbar">
+            <div class="nt-breadcrumb">
+                <i class="ri-home-5-line"></i> Inicio <i class="ri-arrow-right-s-line"></i> <strong>Nuevo Turno</strong>
+            </div>
+            <div class="topbar-actions">
+                <div class="user-profile-menu">
+                    <div class="user-avatar" id="ntUserAvatar">ES</div>
+                    <div class="user-info">
+                        <strong id="ntUserName">Estudiante</strong>
+                        <span>Estudiante</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dash-content-scroll">
+
+            <section class="nt-hero">
+                <div>
+                    <h1>Reservar nuevo turno</h1>
+                    <p>Sigue los pasos para agendar tu atención en el Centro Médico UNS.</p>
+                </div>
+                <i class="ri-calendar-add-line nt-hero-icon"></i>
+            </section>
+
+            <!-- Stepper -->
+            <ol class="nt-stepper" id="ntStepper" aria-label="Progreso de la reserva">
+                <li class="nt-step is-active" data-step="1"><span class="nt-step-num">1</span><span class="nt-step-label">Especialidad</span></li>
+                <li class="nt-step-line"></li>
+                <li class="nt-step" data-step="2"><span class="nt-step-num">2</span><span class="nt-step-label">Fecha y hora</span></li>
+                <li class="nt-step-line"></li>
+                <li class="nt-step" data-step="3"><span class="nt-step-num">3</span><span class="nt-step-label">Confirmar</span></li>
+            </ol>
+
+            <div class="widget-box nt-card">
+
+                <!-- PASO 1: especialidad -->
+                <section class="nt-panel" data-panel="1">
+                    <h3 class="nt-title"><i class="ri-stethoscope-line"></i> ¿Qué servicio necesitas?</h3>
+                    <p class="nt-sub">Elige la especialidad para tu atención.</p>
+                    <div class="nt-servicios" id="ntServicios"></div>
+                </section>
+
+                <!-- PASO 2: fecha y hora -->
+                <section class="nt-panel" data-panel="2" hidden>
+                    <h3 class="nt-title"><i class="ri-calendar-event-line"></i> Elige fecha y hora</h3>
+                    <p class="nt-sub">Atención de lunes a viernes, de 8:00 a.m. a 1:00 p.m.</p>
+
+                    <label class="nt-label" for="ntFecha">Fecha de la cita</label>
+                    <input type="date" id="ntFecha" class="nt-input">
+                    <p class="nt-hint" id="ntFechaHint"></p>
+
+                    <div class="nt-label">Horarios disponibles</div>
+                    <div class="nt-slots" id="ntSlots"></div>
+                    <div class="nt-legend">
+                        <span><i class="nt-dot libre"></i> Disponible</span>
+                        <span><i class="nt-dot ocupado"></i> Ocupado</span>
+                        <span><i class="nt-dot sel"></i> Seleccionado</span>
+                    </div>
+                </section>
+
+                <!-- PASO 3: confirmar -->
+                <section class="nt-panel" data-panel="3" hidden>
+                    <h3 class="nt-title"><i class="ri-checkbox-circle-line"></i> Revisa y confirma</h3>
+                    <p class="nt-sub">Verifica los datos de tu reserva.</p>
+
+                    <div class="nt-resumen" id="ntResumen"></div>
+
+                    <label class="nt-label" for="ntMotivo">Motivo de la consulta <span class="nt-opc">(opcional)</span></label>
+                    <textarea id="ntMotivo" class="nt-input" rows="3" maxlength="300" placeholder="Describe brevemente tus síntomas o el motivo..."></textarea>
+                    <div class="nt-counter"><span id="ntMotivoCount">0</span>/300</div>
+
+                    <label class="nt-label" for="ntAdjunto">Adjuntar documento o imagen <span class="nt-opc">(opcional · JPG, PNG o PDF · máx. 2 MB)</span></label>
+                    <label class="nt-upload" for="ntAdjunto">
+                        <i class="ri-upload-cloud-2-line"></i>
+                        <span id="ntAdjuntoTexto">Haz clic para seleccionar un archivo</span>
+                    </label>
+                    <input type="file" id="ntAdjunto" accept=".jpg,.jpeg,.png,.pdf" hidden>
+                    <button type="button" class="nt-link-btn" id="ntAdjuntoQuitar" hidden><i class="ri-close-circle-line"></i> Quitar archivo</button>
+                </section>
+
+                <!-- ÉXITO -->
+                <section class="nt-panel nt-success" data-panel="ok" hidden>
+                    <div class="nt-success-icon"><i class="ri-checkbox-circle-fill"></i></div>
+                    <h3>¡Reserva registrada!</h3>
+                    <p>Tu turno quedó en estado <strong>Pendiente</strong>. Preséntate 10 minutos antes con tu DNI.</p>
+                    <div class="nt-resumen" id="ntTicket"></div>
+                    <div class="nt-actions center">
+                        <button type="button" class="btn-outline-red" id="ntOtraReserva"><i class="ri-add-line"></i> Nueva reserva</button>
+                        <button type="button" class="btn-solid-red" id="ntVerReservas">Ver mis reservas <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </section>
+
+                <p class="nt-error" id="ntError" role="alert" hidden></p>
+
+                <div class="nt-actions" id="ntNav">
+                    <button type="button" class="btn-outline-red" id="ntBtnPrev"><i class="ri-arrow-left-line"></i> Atrás</button>
+                    <button type="button" class="btn-solid-red" id="ntBtnNext">Siguiente <i class="ri-arrow-right-line"></i></button>
+                    <button type="button" class="btn-solid-red" id="ntBtnConfirm" hidden><i class="ri-check-line"></i> Confirmar reserva</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

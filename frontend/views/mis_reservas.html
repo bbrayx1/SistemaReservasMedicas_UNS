@@ -1,0 +1,127 @@
+<div class="dashboard-layout fade-in-view">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="dash-sidebar">
+        <div class="dash-brand">
+            <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Logo UNS" class="dash-logo">
+        </div>
+        <nav class="dash-nav">
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('dashboard')">
+                <i class="ri-home-5-line"></i><span>Inicio</span>
+            </a>
+            <a href="#" class="nav-item active" onclick="event.preventDefault(); AppRouter.loadView('mis_reservas')">
+                <i class="ri-calendar-check-fill"></i><span>Mis Reservas</span>
+            </a>
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('nuevo_turno')">
+                <i class="ri-add-circle-line"></i><span>Nuevo Turno</span>
+            </a>
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
+                <i class="ri-user-line"></i><span>Mi Perfil</span>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
+                <i class="ri-logout-box-r-line"></i><span>Cerrar Sesión</span>
+            </a>
+        </nav>
+        <div class="sidebar-bottom-art"></div>
+    </aside>
+
+    <!-- ============ CONTENIDO ============ -->
+    <main class="dash-main-area">
+        <header class="dash-topbar">
+            <div class="mr-breadcrumb">
+                <i class="ri-home-5-line"></i> Inicio <i class="ri-arrow-right-s-line"></i> <strong>Mis Reservas</strong>
+            </div>
+            <div class="topbar-actions">
+                <div class="user-profile-menu">
+                    <div class="user-avatar" id="mrUserAvatar">ES</div>
+                    <div class="user-info">
+                        <strong id="mrUserName">Estudiante</strong>
+                        <span>Estudiante</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dash-content-scroll">
+
+            <section class="mr-hero">
+                <div>
+                    <h1>Mis reservas</h1>
+                    <p>Consulta el historial de tus citas médicas y gestiona las pendientes.</p>
+                </div>
+                <button type="button" class="mr-hero-btn" id="mrBtnNuevo"><i class="ri-add-line"></i> Nuevo turno</button>
+            </section>
+
+            <!-- Resumen -->
+            <section class="mr-stats">
+                <article><span class="mr-stat-ico"><i class="ri-calendar-2-line"></i></span><div><small>Total</small><strong id="mrStatTotal">0</strong></div></article>
+                <article><span class="mr-stat-ico pend"><i class="ri-hourglass-line"></i></span><div><small>Pendientes</small><strong id="mrStatPend">0</strong></div></article>
+                <article><span class="mr-stat-ico ok"><i class="ri-check-line"></i></span><div><small>Atendidas</small><strong id="mrStatAten">0</strong></div></article>
+                <article><span class="mr-stat-ico can"><i class="ri-close-line"></i></span><div><small>Canceladas</small><strong id="mrStatCanc">0</strong></div></article>
+            </section>
+
+            <!-- Tabla -->
+            <section class="widget-box mr-panel">
+                <div class="mr-toolbar">
+                    <div class="mr-filters" id="mrFiltros" role="tablist" aria-label="Filtrar por estado">
+                        <button type="button" class="mr-chip is-active" data-estado="TODAS">Todas</button>
+                        <button type="button" class="mr-chip" data-estado="PENDIENTE">Pendientes</button>
+                        <button type="button" class="mr-chip" data-estado="ATENDIDA">Atendidas</button>
+                        <button type="button" class="mr-chip" data-estado="CANCELADA">Canceladas</button>
+                    </div>
+                    <div class="search-wrapper mr-search">
+                        <i class="ri-search-line"></i>
+                        <input type="text" id="mrBuscar" placeholder="Buscar por servicio o N° de reserva...">
+                    </div>
+                </div>
+
+                <div class="mr-table-wrap">
+                    <table class="mr-table">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Servicio</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Profesional</th>
+                                <th>Estado</th>
+                                <th class="mr-th-acc">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mrTbody"></tbody>
+                    </table>
+                </div>
+                <div class="mr-empty" id="mrVacio" hidden>
+                    <i class="ri-calendar-close-line"></i>
+                    <p id="mrVacioTxt">No hay reservas para mostrar.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<!-- ============ MODAL: DETALLE ============ -->
+<div class="mr-modal" id="mrModalDetalle" hidden>
+    <div class="mr-modal-box" role="dialog" aria-modal="true" aria-labelledby="mrDetalleTitulo">
+        <button type="button" class="mr-modal-x" data-cerrar aria-label="Cerrar">&times;</button>
+        <h3 id="mrDetalleTitulo"><i class="ri-file-list-3-line"></i> Detalle de la reserva</h3>
+        <div id="mrDetalleBody"></div>
+        <div class="mr-modal-actions">
+            <button type="button" class="btn-outline-red" data-cerrar>Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<!-- ============ MODAL: CANCELAR ============ -->
+<div class="mr-modal" id="mrModalCancelar" hidden>
+    <div class="mr-modal-box small" role="alertdialog" aria-modal="true" aria-labelledby="mrCancelarTitulo">
+        <div class="mr-warn-icon"><i class="ri-error-warning-line"></i></div>
+        <h3 id="mrCancelarTitulo">¿Cancelar esta cita?</h3>
+        <p id="mrCancelarTxt">Esta acción no se puede deshacer.</p>
+        <div class="mr-modal-actions">
+            <button type="button" class="btn-outline-red" data-cerrar>Volver</button>
+            <button type="button" class="btn-solid-red" id="mrConfirmarCancelar"><i class="ri-close-circle-line"></i> Sí, cancelar cita</button>
+        </div>
+    </div>
+</div>

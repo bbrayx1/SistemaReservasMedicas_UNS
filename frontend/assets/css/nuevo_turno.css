@@ -1,0 +1,129 @@
+/* =========================================================================
+   nuevo_turno.css  ·  Módulo Estudiante (Michael V.)
+   Reutiliza el layout de dashboard.css (sidebar, topbar, widget-box, botones).
+   Todos los selectores propios llevan prefijo .nt- para no chocar con otros módulos.
+   ========================================================================= */
+
+.nt-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: #64748b; }
+.nt-breadcrumb strong { color: var(--uns-red, #a90d32); }
+
+/* Hero */
+.nt-hero {
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  background: linear-gradient(120deg, #750b24, #a90d32 60%, #d61f4c);
+  color: #fff; border-radius: 24px; padding: 28px 36px;
+  box-shadow: 0 14px 30px -14px rgba(169, 13, 50, .6);
+}
+.nt-hero h1 { margin: 0 0 4px; font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; }
+.nt-hero p { margin: 0; color: #ffe0e6; font-size: .95rem; }
+.nt-hero-icon { font-size: 3.4rem; opacity: .35; }
+
+/* Stepper */
+.nt-stepper { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.nt-step { display: flex; align-items: center; gap: 10px; color: #94a3b8; font-weight: 600; font-size: .9rem; }
+.nt-step-num {
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: #fff; border: 2px solid #e2e8f0; font-weight: 700; transition: all .3s;
+}
+.nt-step.is-active { color: #0f172a; }
+.nt-step.is-active .nt-step-num { background: var(--uns-red, #a90d32); border-color: var(--uns-red, #a90d32); color: #fff; box-shadow: 0 6px 16px rgba(169, 13, 50, .3); }
+.nt-step.is-done { color: var(--uns-red, #a90d32); }
+.nt-step.is-done .nt-step-num { background: #fef2f2; border-color: var(--uns-red, #a90d32); color: var(--uns-red, #a90d32); }
+.nt-step-line { flex: 0 1 80px; height: 2px; background: #e2e8f0; }
+
+/* Tarjeta principal */
+.nt-card { max-width: 860px; width: 100%; margin: 0 auto; }
+.nt-panel[hidden] { display: none; }
+.nt-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-family: var(--font-heading); font-size: 1.2rem; color: #0f172a; }
+.nt-title i { color: var(--uns-red, #a90d32); }
+.nt-sub { margin: 0 0 22px; color: #64748b; font-size: .9rem; }
+
+/* Paso 1 */
+.nt-servicios { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.nt-servicio {
+  position: relative; display: flex; align-items: center; gap: 14px; text-align: left;
+  background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 16px 18px; cursor: pointer;
+  transition: all .25s;
+}
+.nt-servicio:hover { border-color: #cbd5e1; transform: translateY(-3px); box-shadow: 0 10px 22px rgba(15, 23, 42, .06); }
+.nt-servicio-ico { width: 48px; height: 48px; border-radius: 14px; background: #fef2f2; color: var(--uns-red, #a90d32); display: grid; place-items: center; font-size: 1.5rem; flex: none; }
+.nt-servicio-txt { display: flex; flex-direction: column; flex: 1; }
+.nt-servicio-txt strong { font-size: .95rem; color: #0f172a; }
+.nt-servicio-txt small { color: #64748b; font-size: .78rem; margin-top: 2px; }
+.nt-servicio-check { opacity: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--uns-red, #a90d32); color: #fff; display: grid; place-items: center; font-size: 1rem; transition: opacity .2s; }
+.nt-servicio.is-selected { border-color: var(--uns-red, #a90d32); background: #fff7f8; box-shadow: 0 0 0 4px rgba(169, 13, 50, .1); }
+.nt-servicio.is-selected .nt-servicio-ico { background: var(--uns-red, #a90d32); color: #fff; }
+.nt-servicio.is-selected .nt-servicio-check { opacity: 1; }
+
+/* Formularios */
+.nt-label { display: block; margin: 18px 0 8px; font-weight: 700; font-size: .85rem; color: #0f172a; }
+.nt-opc { font-weight: 400; color: #94a3b8; }
+.nt-input {
+  width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0; border-radius: 12px;
+  font: inherit; font-size: .92rem; color: #0f172a; background: #fff; outline: 0; transition: .2s;
+}
+.nt-input:focus { border-color: var(--uns-red, #a90d32); box-shadow: 0 0 0 4px rgba(169, 13, 50, .12); }
+textarea.nt-input { resize: vertical; min-height: 84px; }
+.nt-counter { text-align: right; font-size: .72rem; color: #94a3b8; margin-top: 4px; }
+.nt-hint { min-height: 18px; margin: 8px 0 0; font-size: .8rem; color: #64748b; }
+.nt-hint.is-error { color: #b91c1c; font-weight: 600; }
+
+/* Paso 2: horas */
+.nt-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 10px; }
+.nt-slot {
+  padding: 10px 8px; border-radius: 12px; border: 1.5px solid #e2e8f0; background: #fff;
+  font-weight: 700; font-size: .85rem; color: var(--uns-red, #a90d32); cursor: pointer; transition: all .2s;
+}
+.nt-slot:hover:not([disabled]) { border-color: var(--uns-red, #a90d32); transform: translateY(-2px); }
+.nt-slot.is-selected { background: var(--uns-red, #a90d32); border-color: var(--uns-red, #a90d32); color: #fff; box-shadow: 0 8px 16px rgba(169, 13, 50, .25); }
+.nt-slot[disabled] { background: #f1f5f9; color: #cbd5e1; text-decoration: line-through; cursor: not-allowed; }
+.nt-empty { grid-column: 1 / -1; margin: 0; padding: 18px; text-align: center; color: #64748b; background: #f8fafc; border-radius: 12px; font-size: .88rem; }
+.nt-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; font-size: .75rem; color: #64748b; }
+.nt-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.nt-dot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; border: 1.5px solid #e2e8f0; }
+.nt-dot.libre { background: #fff; }
+.nt-dot.ocupado { background: #f1f5f9; }
+.nt-dot.sel { background: var(--uns-red, #a90d32); border-color: var(--uns-red, #a90d32); }
+
+/* Paso 3: resumen + adjunto */
+.nt-resumen { background: #fff7f8; border: 1px solid #fbd5dc; border-radius: 16px; padding: 6px 18px; }
+.nt-resumen ul { list-style: none; margin: 0; padding: 0; }
+.nt-resumen li { display: grid; grid-template-columns: 24px 110px 1fr; align-items: center; gap: 8px; padding: 11px 0; border-bottom: 1px dashed #f3c4cd; font-size: .88rem; }
+.nt-resumen li:last-child { border-bottom: 0; }
+.nt-resumen li i { color: var(--uns-red, #a90d32); font-size: 1.1rem; }
+.nt-resumen li span { color: #64748b; }
+.nt-resumen li strong { color: #0f172a; }
+.nt-resumen li strong::first-letter { text-transform: uppercase; }
+
+.nt-upload {
+  display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px;
+  border: 2px dashed #cbd5e1; border-radius: 14px; color: #64748b; font-size: .88rem; cursor: pointer; transition: .2s;
+}
+.nt-upload:hover { border-color: var(--uns-red, #a90d32); color: var(--uns-red, #a90d32); background: #fff7f8; }
+.nt-upload i { font-size: 1.6rem; }
+.nt-link-btn { margin-top: 8px; background: none; border: 0; color: var(--uns-red, #a90d32); font-weight: 600; font-size: .8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.nt-link-btn[hidden] { display: none; }
+
+/* Éxito */
+.nt-success { text-align: center; }
+.nt-success-icon { font-size: 4rem; color: #10b981; line-height: 1; }
+.nt-success h3 { margin: 6px 0; font-family: var(--font-heading); font-size: 1.5rem; color: #0f172a; }
+.nt-success p { color: #64748b; margin: 0 0 20px; }
+.nt-success .nt-resumen { text-align: left; }
+
+/* Acciones / errores */
+.nt-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+.nt-actions.center { justify-content: center; border-top: 0; }
+.nt-actions[hidden], .nt-error[hidden] { display: none; }
+.nt-actions button:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.nt-error { margin: 18px 0 0; padding: 12px 16px; border-radius: 12px; background: #fee2e2; color: #991b1b; font-size: .85rem; font-weight: 600; }
+
+@media (max-width: 768px) {
+  .nt-servicios { grid-template-columns: 1fr; }
+  .nt-hero { padding: 22px; }
+  .nt-hero-icon { display: none; }
+  .nt-step-label { display: none; }
+  .nt-step-line { flex-basis: 30px; }
+  .nt-resumen li { grid-template-columns: 24px 1fr; }
+  .nt-resumen li strong { grid-column: 2; }
+}

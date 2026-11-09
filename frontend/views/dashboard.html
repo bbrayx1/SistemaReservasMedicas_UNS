@@ -1,5 +1,5 @@
 <div class="dashboard-layout fade-in-view">
-    
+
     <!-- =====================================================================
          BARRA LATERAL (SIDEBAR)
          ===================================================================== -->
@@ -11,32 +11,50 @@
         <nav class="dash-nav">
             <!-- Menú Principal -->
             <a href="#" class="nav-item active">
-                <i class="ri-home-5-fill"></i> 
+                <i class="ri-home-5-fill"></i>
                 <span>Inicio</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="ri-calendar-check-line"></i> 
+
+
+            <!-- VERSION ANTERIOR (8/11 10pm)
+            
+            a href="#" class="nav-item">
+                <i class="ri-calendar-check-line"></i>
                 <span>Mis Reservas</span>
             </a>
+            
             <a href="#" class="nav-item">
-                <i class="ri-add-circle-line"></i> 
+                <i class="ri-add-circle-line"></i>
                 <span>Nuevo Turno</span>
             </a>
-            <a href="#" class="nav-item"
-               onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
-               <i class="ri-user-line"></i>
-               <span>Mi Perfil</span>
+            ------------------------------- -->
+
+            <!--NUEVA VERSION (8/11 10pm)------ -->
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('mis_reservas')">
+                <i class="ri-calendar-check-line"></i>
+                <span>Mis Reservas</span>
+            </a>
+
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('nuevo_turno')">
+                <i class="ri-add-circle-line"></i>
+                <span>Nuevo Turno</span>
+            </a>
+            <!-- --------------------------------->
+
+            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
+                <i class="ri-user-line"></i>
+                <span>Mi Perfil</span>
             </a>
             <a href="#" class="nav-item">
-                <i class="ri-notification-3-line"></i> 
-                <span>Notificaciones</span> 
+                <i class="ri-notification-3-line"></i>
+                <span>Notificaciones</span>
                 <span class="badge-count">2</span>
             </a>
-            
+
             <div class="nav-divider"></div>
 
             <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
-                <i class="ri-logout-box-r-line"></i> 
+                <i class="ri-logout-box-r-line"></i>
                 <span>Cerrar Sesión</span>
             </a>
         </nav>
@@ -49,7 +67,7 @@
          CONTENIDO PRINCIPAL
          ===================================================================== -->
     <main class="dash-main-area">
-        
+
         <!-- CABECERA SUPERIOR (TOPBAR) -->
         <header class="dash-topbar">
             <div class="search-wrapper">
@@ -74,7 +92,7 @@
 
         <!-- ÁREA DE SCROLL DEL DASHBOARD -->
         <div class="dash-content-scroll">
-            
+
             <!-- 1. Banner de Bienvenida -->
             <section class="welcome-banner">
                 <div class="welcome-text">
@@ -85,7 +103,8 @@
                 </div>
                 <div class="welcome-image">
                     <!-- Fotografía del Centro Médico UNS con corte diagonal vía CSS -->
-                    <img src="https://www.uns.edu.pe/recursos/noticias/e1a27d7ce4d4cbd5cd45f78b27333ab1.JPG" alt="Campus Médico UNS">
+                    <img src="https://www.uns.edu.pe/recursos/noticias/e1a27d7ce4d4cbd5cd45f78b27333ab1.JPG"
+                        alt="Campus Médico UNS">
                 </div>
             </section>
 
@@ -130,14 +149,14 @@
 
             <!-- 3. Contenedor Dividido: Próxima Cita y Avisos -->
             <section class="split-dashboard-widgets">
-                
+
                 <!-- Columna Izquierda: Próxima Cita -->
                 <div class="widget-box next-appointment">
                     <div class="widget-header">
                         <h3><i class="ri-calendar-event-fill"></i> Próxima Cita</h3>
                         <a href="#" class="view-all-link">Ver todas <i class="ri-arrow-right-line"></i></a>
                     </div>
-                    
+
                     <div class="appointment-card">
                         <div class="doctor-illustration">
                             <!-- Aquí va la ilustración de la doctora (se colocará vía CSS o img) -->
@@ -149,9 +168,11 @@
                         <div class="appointment-details">
                             <h4>Medicina General</h4>
                             <ul class="appointment-specs">
-                                <li><i class="ri-calendar-line"></i> <strong>Fecha:</strong> 10 de Noviembre de 2026</li>
+                                <li><i class="ri-calendar-line"></i> <strong>Fecha:</strong> 10 de Noviembre de 2026
+                                </li>
                                 <li><i class="ri-time-line"></i> <strong>Hora:</strong> 09:30 a.m.</li>
-                                <li><i class="ri-map-pin-line"></i> <strong>Consultorio:</strong> Consultorio N° 1 - Centro Médico UNS</li>
+                                <li><i class="ri-map-pin-line"></i> <strong>Consultorio:</strong> Consultorio N° 1 -
+                                    Centro Médico UNS</li>
                             </ul>
                             <button class="btn-outline-red">
                                 <i class="ri-calendar-todo-line"></i> Ver Detalles
@@ -166,7 +187,7 @@
                         <h3><i class="ri-megaphone-fill"></i> Avisos Importantes</h3>
                         <a href="#" class="view-all-link">Ver más <i class="ri-arrow-right-line"></i></a>
                     </div>
-                    
+
                     <div class="notices-list">
                         <div class="notice-item">
                             <span class="notice-dot red"></span>
@@ -205,7 +226,7 @@
                     <h3><i class="ri-heart-pulse-fill"></i> Servicios Médicos</h3>
                     <a href="#" class="view-all-link">Ver todos los servicios <i class="ri-arrow-right-line"></i></a>
                 </div>
-                
+
                 <div class="services-grid">
                     <div class="service-pill"><i class="ri-stethoscope-line"></i> <span>Medicina General</span></div>
                     <div class="service-pill"><i class="ri-tooth-line"></i> <span>Odontología</span></div>
