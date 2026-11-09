@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda médica · UNS</title>
+  <link rel="stylesheet" href="../assets/css/agenda.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- Paciente sentado: colores por variables CSS -->
+      <symbol id="seated" overflow="visible">
+        <rect x="-17" y="0" width="12" height="40" rx="5" style="fill:var(--pants)"/>
+        <rect x="5" y="0" width="12" height="40" rx="5" style="fill:var(--pants)"/>
+        <rect x="-20" y="-70" width="40" height="76" rx="14" style="fill:var(--shirt)"/>
+        <g class="bob">
+          <circle cy="-90" r="16" style="fill:var(--skin)"/>
+          <path d="M-17-92a17 17 0 0 1 34 0c-6-8-24-8-34 0z" style="fill:var(--hair)"/>
+          <ellipse class="eye" cx="-6" cy="-89" rx="2" ry="2.4" fill="#2a1218"/>
+          <ellipse class="eye" cx="6" cy="-89" rx="2" ry="2.4" fill="#2a1218"/>
+          <path d="M-5-82q5 4 10 0" stroke="#2a1218" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="../assets/img/logo_uns_blanco.png" alt="Logo Universidad Nacional del Santa">
+      <div><strong>UNS · Sistema de Reservas Médicas</strong><small>Módulo del trabajador médico</small></div>
+    </div>
+    <div class="user-area"><i class="dot"></i><span id="nombreMedico">Dr. Médico</span><button id="btnCerrarSesion" class="btn btn-light">Cerrar sesión</button></div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <i class="plus" style="left:8%;animation-delay:0s">+</i><i class="plus" style="left:30%;animation-delay:-3s;font-size:18px">+</i>
+      <i class="plus" style="left:52%;animation-delay:-6s;font-size:34px">+</i><i class="plus" style="left:70%;animation-delay:-1.5s">+</i>
+      <div>
+        <p class="eyebrow">PANEL MÉDICO</p>
+        <h1>Agenda del día</h1>
+        <p>Consulta tus citas y accede a la atención clínica.</p>
+        <div class="date-box"><div><span>HOY</span><strong id="fechaHoy">—</strong></div><div class="clock" id="reloj">--:--:--</div></div>
+      </div>
+      <div class="hero-logo"><img src="../assets/img/logo_uns_blanco.png" alt="Escudo UNS"></div>
+      <svg class="ecg" viewBox="0 0 1150 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28H300l14-4 10 4h30l10-24 14 42 12-18h40l10-4 10 4h700"/></svg>
+    </section>
+
+    <section class="stats">
+      <article><div class="ico">📅</div><div><span>Citas de hoy</span><strong id="totalCitas">0</strong></div></article>
+      <article><div class="ico">⏳</div><div><span>Pendientes</span><strong id="totalPendientes">0</strong></div></article>
+      <article><div class="ico">✔</div><div><span>Atendidas</span><strong id="totalAtendidas">0</strong></div></article>
+    </section>
+
+    <section class="sala">
+      <div class="sala-head"><div><h2>Sala de espera</h2><p>Pacientes que aguardan su atención.</p></div><span class="live">EN VIVO</span></div>
+      <svg class="scene" viewBox="0 0 900 260" role="img" aria-label="Ilustración de sala de espera">
+        <rect width="900" height="260" fill="#fff1f3"/>
+        <rect y="205" width="900" height="55" fill="#f3d3d9"/>
+        <rect y="200" width="900" height="6" fill="#dc2c4c"/>
+        <!-- Ventana con nubes -->
+        <svg x="60" y="25" width="170" height="110"><rect width="170" height="110" rx="8" fill="#cfeaff"/><g class="cloud"><ellipse cx="0" cy="35" rx="26" ry="10" fill="#fff"/><ellipse cx="18" cy="28" rx="16" ry="10" fill="#fff"/></g></svg>
+        <rect x="60" y="25" width="170" height="110" rx="8" fill="none" stroke="#fff" stroke-width="8"/><path d="M145 25v110M60 80h170" stroke="#fff" stroke-width="5"/>
+        <!-- Reloj -->
+        <g transform="translate(350 70)"><circle r="34" fill="#fff" stroke="#b70730" stroke-width="5"/><path d="M0-27v5M27 0h-5M0 27v-5M-27 0h5" stroke="#b70730" stroke-width="3"/>
+          <path class="hh" d="M0 0V-17" stroke="#2a1218" stroke-width="4" stroke-linecap="round"/><path class="mh" d="M0 0V-26" stroke="#dc2c4c" stroke-width="3" stroke-linecap="round"/><circle r="3" fill="#b70730"/></g>
+        <!-- Pantalla de turno -->
+        <g transform="translate(450 38)"><rect width="150" height="64" rx="8" fill="#8a0522"/><text x="75" y="22" fill="#ffd5dc" font-size="12" text-anchor="middle" font-family="Arial" letter-spacing="2">SIGUIENTE TURNO</text><text class="led" x="75" y="52" fill="#fff" font-size="26" font-weight="700" text-anchor="middle" font-family="Arial">A-012</text></g>
+        <!-- Afiche con cruz -->
+        <g transform="translate(680 30)"><rect width="110" height="120" rx="8" fill="#fff" stroke="#f0d9de" stroke-width="3"/><path d="M45 28h20v20h20v20H65v20H45V68H25V48h20z" fill="#dc2c4c"/><text x="55" y="108" font-size="11" font-family="Arial" font-weight="700" fill="#8a0522" text-anchor="middle">CUIDAMOS TU SALUD</text></g>
+        <!-- Planta -->
+        <g transform="translate(25 200)"><rect x="-16" y="-34" width="32" height="34" rx="5" fill="#b70730"/><g class="sway"><path d="M0-34C-30-70-26-100-4-120 6-90 8-60 0-34zM0-34C30-60 34-96 14-116c-14 24-18 52-14 82z" fill="#3d9b62"/></g></g>
+        <!-- Banca con pacientes -->
+        <g transform="translate(150 188)">
+          <rect x="-30" y="-78" width="450" height="52" rx="12" fill="#b70730"/>
+          <use href="#seated" x="30" y="-8" style="--skin:#f1c27d;--hair:#2b1b17;--shirt:#ffffff;--pants:#34405a"/>
+          <use href="#seated" x="150" y="-8" style="--skin:#c68642;--hair:#171010;--shirt:#dc2c4c;--pants:#2a2f45"/>
+          <use href="#seated" x="270" y="-8" style="--skin:#e8b08a;--hair:#6b3b1d;--shirt:#f6b8c3;--pants:#3a3f55"/>
+          <use href="#seated" x="390" y="-8" style="--skin:#8d5524;--hair:#0f0a0a;--shirt:#8a0522;--pants:#2a2f45"/>
+          <!-- revista y celular -->
+          <g transform="translate(150 -52) rotate(-8)"><rect x="-16" y="-10" width="32" height="24" rx="3" fill="#fff" stroke="#dc2c4c" stroke-width="2"/><path d="M-9-3h18M-9 3h12" stroke="#dc2c4c" stroke-width="2"/></g>
+          <g transform="translate(270 -48)"><rect x="-6" y="-12" width="12" height="22" rx="3" fill="#2a1218"/><rect class="led" x="-4" y="-9" width="8" height="15" rx="2" fill="#9be7ff"/></g>
+          <!-- saludo -->
+          <g transform="translate(414 -58)"><rect class="hand" x="-3" y="-26" width="6" height="26" rx="3" fill="#8d5524"/></g>
+          <rect x="-30" y="-14" width="450" height="12" rx="6" fill="#8a0522"/><rect x="-10" y="-4" width="10" height="30" fill="#4b0414"/><rect x="390" y="-4" width="10" height="30" fill="#4b0414"/>
+        </g>
+        <!-- Corazones flotantes -->
+        <path class="heart" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(190 80) scale(1.6)"/>
+        <path class="heart" style="animation-delay:-2s" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(430 90) scale(1.3)"/>
+        <path class="heart" style="animation-delay:-1s" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(670 85) scale(1.5)"/>
+      </svg>
+      <div class="espera" id="listaEspera"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><div><h2>Pacientes citados</h2><p>Listado correspondiente a tu agenda.</p></div>
+        <div class="head-actions"><button id="btnNuevaCita" class="btn btn-primary">＋ Nueva cita</button>
+        <label class="search">Buscar paciente <input id="buscarPaciente" type="search" placeholder="Nombre o DNI"></label></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Hora</th><th>Paciente</th><th>DNI</th><th>Especialidad</th><th>Estado</th><th>Acción</th></tr></thead>
+          <tbody id="tablaAgenda"></tbody>
+        </table>
+        <p id="sinCitas" class="empty" hidden>No hay citas para mostrar.</p>
+      </div>
+    </section>
+    <p class="notice">Las citas se leen y guardan en la base de datos reservas_medicas_uns.</p>
+  </main>
+  <div class="modal" id="modalCita" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tituloCita">
+      <button class="modal-x" id="cerrarCita" aria-label="Cerrar">×</button>
+      <h2 id="tituloCita">Nueva cita</h2>
+      <div class="paso"><b>1</b> Paciente
+        <input id="citaBuscar" type="search" placeholder="DNI, código o nombre (mín. 3 caracteres)" autocomplete="off">
+        <div id="citaResultados" class="resultados"></div>
+        <button type="button" class="btn btn-light btn-small" id="btnMostrarPaciente">＋ Registrar paciente nuevo</button>
+        <form id="formPacienteRapido" class="form-paciente-rapido" hidden>
+          <div class="fila"><input name="dni" maxlength="8" pattern="[0-9]{8}" placeholder="DNI (8 dígitos)" required>
+          <input name="codigo_universitario" maxlength="10" placeholder="Código universitario (opcional)"></div>
+          <div class="fila"><input name="nombres" placeholder="Nombres" required><input name="apellidos" placeholder="Apellidos" required></div>
+          <input name="correo" type="email" placeholder="Correo electrónico" required>
+          <button class="btn btn-primary btn-small" type="submit">Guardar y seleccionar paciente</button>
+        </form>
+      </div>
+      <div class="paso"><b>2</b> Servicio, fecha y hora
+        <div class="fila"><select id="citaServicio"></select><input id="citaFecha" type="date"></div>
+        <div id="citaHoras" class="horas"></div></div>
+      <p id="citaResumen" class="resumen"></p>
+      <p id="citaError" class="error" role="alert" hidden></p>
+      <div class="acciones"><button type="button" class="btn btn-light" id="citaCancelar">Cancelar</button><button type="button" class="btn btn-primary" id="citaGuardar" disabled>Confirmar cita</button></div>
+    </div>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  <script src="../assets/js/dashboard_medico.js"></script>
+</body>
+</html>
