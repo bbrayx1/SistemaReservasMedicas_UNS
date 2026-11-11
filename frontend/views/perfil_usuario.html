@@ -10,10 +10,10 @@
       <button type="button" class="profile-nav-item" data-profile-route="dashboard">
         <i class="ri-home-5-line" aria-hidden="true"></i><span>Inicio</span>
       </button>
-      <button type="button" class="profile-nav-item" disabled title="Disponible próximamente">
+      <button type="button" class="profile-nav-item" data-profile-route="mis_reservas">
         <i class="ri-calendar-check-line" aria-hidden="true"></i><span>Mis reservas</span>
       </button>
-      <button type="button" class="profile-nav-item" disabled title="Disponible próximamente">
+      <button type="button" class="profile-nav-item" data-profile-route="nuevo_turno">
         <i class="ri-add-circle-line" aria-hidden="true"></i><span>Nuevo turno</span>
       </button>
       <button type="button" class="profile-nav-item is-active" aria-current="page">
@@ -65,10 +65,10 @@
         </button>
         <div class="profile-hero-copy">
           <span class="profile-hero-eyebrow">PERFIL DE ESTUDIANTE</span>
-          <h2>Estudiante de ejemplo</h2>
+          <h2 id="profileHeroName">Estudiante</h2>
           <p>Universidad Nacional del Santa</p>
           <span class="profile-code">
-            <i class="ri-graduation-cap-line" aria-hidden="true"></i> Código 0202414046
+            <i class="ri-graduation-cap-line" aria-hidden="true"></i> Código <span id="profileHeroCode">—</span>
           </span>
         </div>
         <span class="profile-hero-mark" aria-hidden="true">UNS</span>
@@ -92,30 +92,36 @@
             <h2>Datos personales</h2>
           </div>
           <span class="profile-section-note">
-            <i class="ri-information-line" aria-hidden="true"></i> Datos de ejemplo
+            <i class="ri-shield-check-line" aria-hidden="true"></i> Datos de tu cuenta
           </span>
         </div>
         <div class="profile-data-grid">
           <article class="profile-data-card">
             <span class="profile-card-icon"><i class="ri-user-line" aria-hidden="true"></i></span>
-            <div><small>NOMBRE COMPLETO</small><strong>Estudiante de ejemplo</strong></div>
+            <div><small>NOMBRE COMPLETO</small><strong id="profileFullName">—</strong></div>
           </article>
           <article class="profile-data-card">
             <span class="profile-card-icon"><i class="ri-graduation-cap-line" aria-hidden="true"></i></span>
-            <div><small>CÓDIGO UNIVERSITARIO</small><strong>0202414046</strong></div>
+            <div><small>CÓDIGO UNIVERSITARIO</small><strong id="profileCode">—</strong></div>
           </article>
           <article class="profile-data-card">
             <span class="profile-card-icon"><i class="ri-id-card-line" aria-hidden="true"></i></span>
-            <div><small>DNI</small><strong>12345678</strong></div>
+            <div><small>DNI</small><strong id="profileDni">—</strong></div>
           </article>
           <article class="profile-data-card">
             <span class="profile-card-icon"><i class="ri-mail-line" aria-hidden="true"></i></span>
-            <div><small>CORREO INSTITUCIONAL</small><strong>estudiante@uns.edu.pe</strong></div>
+            <div><small>CORREO INSTITUCIONAL</small><strong id="profileEmailText">—</strong></div>
           </article>
         </div>
+        <form id="profileEmailForm" class="profile-email-form">
+          <label for="profileEmailInput">Actualizar correo institucional</label>
+          <div><input id="profileEmailInput" name="correo" type="email" maxlength="150" required>
+            <button type="submit" class="profile-primary-button"><i class="ri-save-line"></i> Guardar correo</button></div>
+          <p id="profileMessage" class="profile-form-message" role="status" aria-live="polite"></p>
+        </form>
         <p class="profile-info-note">
           <i class="ri-shield-check-line" aria-hidden="true"></i>
-          La información de esta pantalla es demostrativa hasta conectar el sistema con la base de datos.
+          Los datos se consultan y actualizan desde tu cuenta institucional.
         </p>
       </section>
 
@@ -157,7 +163,7 @@
                aria-live="polite"></p>
           </form>
           <p class="profile-security-note">
-            La modificación real de la contraseña estará disponible cuando se conecte el servidor.
+            Tu nueva contraseña se almacenará protegida mediante un hash seguro.
           </p>
         </div>
       </section>

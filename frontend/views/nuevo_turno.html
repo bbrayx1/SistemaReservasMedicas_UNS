@@ -6,20 +6,20 @@
             <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="Logo UNS" class="dash-logo">
         </div>
         <nav class="dash-nav">
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('dashboard')">
+            <a href="#" class="nav-item" data-route="dashboard">
                 <i class="ri-home-5-line"></i><span>Inicio</span>
             </a>
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('mis_reservas')">
+            <a href="#" class="nav-item" data-route="mis_reservas">
                 <i class="ri-calendar-check-line"></i><span>Mis Reservas</span>
             </a>
-            <a href="#" class="nav-item active" onclick="event.preventDefault(); AppRouter.loadView('nuevo_turno')">
+            <a href="#" class="nav-item active" data-route="nuevo_turno">
                 <i class="ri-add-circle-fill"></i><span>Nuevo Turno</span>
             </a>
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
+            <a href="#" class="nav-item" data-route="perfil_usuario">
                 <i class="ri-user-line"></i><span>Mi Perfil</span>
             </a>
             <div class="nav-divider"></div>
-            <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
+            <a href="#" class="nav-item logout" data-action="logout">
                 <i class="ri-logout-box-r-line"></i><span>Cerrar Sesión</span>
             </a>
         </nav>

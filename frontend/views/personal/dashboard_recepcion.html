@@ -6,9 +6,9 @@
         </div>
         <nav class="sidebar-nav">
             <a href="#" class="active"><i class="ri-calendar-check-line"></i> Fila del Día</a>
-            <a href="#"><i class="ri-folder-user-line"></i> Historial Médico</a>
-            <a href="#"><i class="ri-notification-3-line"></i> Notificaciones</a>
-            <a href="#" onclick="AppRouter.logout(); return false;"><i class="ri-logout-box-line"></i> Cerrar Sesión</a>
+            <a href="#" data-reception-section="history"><i class="ri-folder-user-line"></i> Historial Médico</a>
+            <a href="#" data-reception-section="notifications"><i class="ri-notification-3-line"></i> Notificaciones</a>
+            <a href="#" data-action="logout"><i class="ri-logout-box-line"></i> Cerrar Sesión</a>
         </nav>
     </aside>
 
@@ -18,7 +18,7 @@
         <header class="top-header">
             <div class="search-bar">
                 <i class="ri-search-line"></i>
-                <input type="text" placeholder="Buscar paciente por DNI...">
+                <input type="search" id="receptionSearch" placeholder="Buscar paciente por DNI...">
             </div>
             
             <div class="top-actions">
@@ -26,7 +26,7 @@
                 <div class="user-profile">
                     <div class="user-avatar">RM</div>
                     <div class="user-info-text">
-                        <strong>Recepción Médica</strong>
+                        <strong id="receptionUserName">Recepción Médica</strong>
                         <span>Secretaría</span>
                     </div>
                     <i class="ri-arrow-down-s-line" style="color: #888; margin-right: 5px;"></i>
@@ -60,25 +60,8 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>#01</strong></td>
-                            <td>Juan Pérez Gómez<br><small style="color:#888;">DNI: 71234567</small></td>
-                            <td>Medicina General</td>
-                            <td><span class="status-badge waiting">En sala de espera</span></td>
-                            <td>
-                                <button class="btn-success btn-sm">Llamar a triaje</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>#02</strong></td>
-                            <td>María López Silva<br><small style="color:#888;">DNI: 78901234</small></td>
-                            <td>Odontología</td>
-                            <td><span class="status-badge in-progress">En consultorio</span></td>
-                            <td>
-                                <button class="btn-secondary btn-sm">Ver ficha</button>
-                            </td>
-                        </tr>
+                    <tbody id="receptionQueueBody">
+                        <tr><td colspan="5">Cargando fila de atención...</td></tr>
                     </tbody>
                 </table>
             </div>

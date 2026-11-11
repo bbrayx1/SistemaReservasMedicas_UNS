@@ -22,7 +22,7 @@
                     <label for="staffId">Identificador Institucional</label>
                     <div class="staff-input-group">
                         <i class="ri-profile-line"></i>
-                        <input type="text" id="staffId" name="staffId" placeholder="DNI o Código de Trabajador" required>
+                        <input type="text" id="staffId" name="staffId" placeholder="DNI o correo institucional" required>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
             </form>
 
             <div class="staff-footer">
-                <button type="button" onclick="AppRouter.loadView('login')" class="back-to-public">
+                <button type="button" data-route="login" class="back-to-public">
                     <i class="ri-arrow-left-line"></i> Volver al portal de estudiantes
                 </button>
             </div>

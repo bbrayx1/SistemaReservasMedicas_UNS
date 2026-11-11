@@ -1,11 +1,41 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Registrar paciente · UNS</title><link rel="stylesheet" href="../assets/css/agenda.css"></head>
-<body><header class="topbar"><div class="brand"><img src="../assets/img/logo_uns_blanco.png" alt="UNS"><div><strong>UNS · Sistema de Reservas Médicas</strong><small>Registro de pacientes</small></div></div><a class="btn btn-light" href="agenda.html">Volver a agenda</a></header>
-<main class="container"><section class="hero"><div><p class="eyebrow">PACIENTES</p><h1>Registrar nuevo paciente</h1><p>Los datos se guardan en la base de datos institucional.</p></div><div class="hero-logo"><img src="../assets/img/logo_uns_blanco.png" alt=""></div></section>
-<div id="mensajePaciente" class="message" hidden></div>
-<section class="panel patient-panel"><form id="formPaciente">
-<div class="form-grid"><label>DNI (8 dígitos) *<input name="dni" maxlength="8" pattern="[0-9]{8}" required></label><label>Código universitario<input name="codigo_universitario" maxlength="10"></label>
-<label>Nombres *<input name="nombres" required></label><label>Apellidos *<input name="apellidos" required></label>
-<label>Correo electrónico *<input name="correo" type="email" required></label></div>
-<div class="acciones"><button class="btn btn-light" type="reset">Limpiar</button><button class="btn btn-primary" type="submit">Guardar paciente</button></div></form></section>
-<section class="panel patient-panel"><h2>¿Qué ocurre al guardar?</h2><p>Se crea un usuario con rol Estudiante/Paciente en la tabla <code>usuarios</code>. Luego podrás buscarlo por DNI, código o nombre en la ventana <strong>Nueva cita</strong> de la agenda.</p></section></main>
-<script src="../assets/js/pacientes.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registrar paciente · UNS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="../assets/css/staff/agenda.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="../assets/img/logo_uns_blanco.png" alt="UNS"><div><strong>UNS · Sistema de Reservas Médicas</strong><small>Registro de pacientes</small></div></div>
+    <a class="btn btn-light" href="agenda.html">Volver a agenda</a>
+  </header>
+  <main class="container">
+    <section class="hero"><div><p class="eyebrow">PACIENTES</p><h1>Registrar nuevo paciente</h1><p>Los datos se guardan en la base de datos institucional.</p></div><div class="hero-logo"><img src="../assets/img/logo_uns_blanco.png" alt=""></div></section>
+    <div id="mensajePaciente" class="message" hidden></div>
+    <section class="panel patient-panel">
+      <form id="formPaciente">
+        <div class="form-grid">
+          <label>DNI (8 dígitos) *<input name="dni" maxlength="8" pattern="[0-9]{8}" required></label>
+          <label>Código universitario<input name="codigo_universitario" maxlength="10"></label>
+          <label>Nombres *<input name="nombres" required></label>
+          <label>Apellidos *<input name="apellidos" required></label>
+          <label>Correo electrónico *<input name="correo" type="email" required></label>
+        </div>
+        <div class="acciones"><button class="btn btn-light" type="reset">Limpiar</button><button class="btn btn-primary" type="submit">Guardar paciente</button></div>
+      </form>
+    </section>
+    <section class="panel patient-panel"><h2>¿Qué ocurre al guardar?</h2><p>Se crea un usuario con rol Estudiante/Paciente en la tabla <code>usuarios</code>. Luego podrás buscarlo por DNI, código o nombre en la ventana <strong>Nueva cita</strong> de la agenda.</p></section>
+  </main>
+  <script>window.APP_CONFIG = { apiBase: '../../backend/public/api.php' };</script>
+  <script defer src="../assets/js/core/api-client.js"></script>
+  <script defer src="../assets/js/core/session.js"></script>
+  <script defer src="../assets/js/core/utils.js"></script>
+  <script defer src="../assets/js/modules/medical/patients.controller.js"></script>
+</body>
+</html>

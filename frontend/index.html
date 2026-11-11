@@ -7,29 +7,41 @@
   <meta name="description" content="Portal de información y acceso al Sistema de Reservas Médicas de la Universidad Nacional del Santa.">
   <title>Servicio Médico | Universidad Nacional del Santa</title>
 
+  <!-- Recursos tipográficos e iconográficos del diseño institucional original. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/login.css">
-  <link rel="stylesheet" href="assets/css/dashboard.css">
-  <link rel="stylesheet" href="assets/css/perfil_usuario.css">
-  <link rel="stylesheet" href="assets/css/personal/dashboard_personal.css">
-  
-<!--AGREGADOS (8/11 10pm)---------------------->
-  <link rel="stylesheet" href="assets/css/nuevo_turno.css">
-  <link rel="stylesheet" href="assets/css/mis_reservas.css">
-  <script defer src="assets/js/reservas_store.js"></script>
-  <script defer src="assets/js/nuevo_turno.js"></script>
-  <script defer src="assets/js/mis_reservas.js"></script>
-<!-------->
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script defer src="assets/js/login.js"></script>
-  <script defer src="assets/js/dashboard.js"></script>
-  <script defer src="assets/js/perfil_usuario.js"></script>
-  <script defer src="assets/js/app.js"></script>
+  <!-- Hojas de estilo separadas por responsabilidad. -->
+  <link rel="stylesheet" href="assets/css/core/main.css">
+  <link rel="stylesheet" href="assets/css/public/login.css">
+  <link rel="stylesheet" href="assets/css/student/dashboard.css">
+  <link rel="stylesheet" href="assets/css/student/perfil_usuario.css">
+  <link rel="stylesheet" href="assets/css/student/nuevo_turno.css">
+  <link rel="stylesheet" href="assets/css/student/mis_reservas.css">
+  <link rel="stylesheet" href="assets/css/staff/shared-dashboard.css">
+
+  <script>window.APP_CONFIG = { apiBase: '../backend/public/api.php' };</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Infraestructura común. -->
+  <script defer src="assets/js/core/api-client.js"></script>
+  <script defer src="assets/js/core/session.js"></script>
+  <script defer src="assets/js/core/utils.js"></script>
+
+  <!-- Controladores independientes por módulo. -->
+  <script defer src="assets/js/modules/auth/login.controller.js"></script>
+  <script defer src="assets/js/modules/auth/staff-login.controller.js"></script>
+  <script defer src="assets/js/modules/student/dashboard.controller.js"></script>
+  <script defer src="assets/js/modules/student/booking.controller.js"></script>
+  <script defer src="assets/js/modules/student/reservations.controller.js"></script>
+  <script defer src="assets/js/modules/student/profile.controller.js"></script>
+  <script defer src="assets/js/modules/staff/operations.controller.js"></script>
+  <script defer src="assets/js/modules/staff/dashboard.controller.js"></script>
+  <script defer src="assets/js/modules/admin/dashboard.controller.js"></script>
+  <script defer src="assets/js/modules/reception/dashboard.controller.js"></script>
+  <script defer src="assets/js/core/router.js"></script>
 </head>
 <body>
   <div id="app-root" class="app-viewport">

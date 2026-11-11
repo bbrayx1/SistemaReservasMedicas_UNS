@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agenda médica · UNS</title>
-  <link rel="stylesheet" href="../assets/css/agenda.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="../assets/css/staff/agenda.css">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -48,9 +52,9 @@
     </section>
 
     <section class="stats">
-      <article><div class="ico">📅</div><div><span>Citas de hoy</span><strong id="totalCitas">0</strong></div></article>
-      <article><div class="ico">⏳</div><div><span>Pendientes</span><strong id="totalPendientes">0</strong></div></article>
-      <article><div class="ico">✔</div><div><span>Atendidas</span><strong id="totalAtendidas">0</strong></div></article>
+      <article><div class="ico"><i class="ri-calendar-check-line"></i></div><div><span>Citas de hoy</span><strong id="totalCitas">0</strong></div></article>
+      <article><div class="ico"><i class="ri-time-line"></i></div><div><span>Pendientes</span><strong id="totalPendientes">0</strong></div></article>
+      <article><div class="ico"><i class="ri-check-double-line"></i></div><div><span>Atendidas</span><strong id="totalAtendidas">0</strong></div></article>
     </section>
 
     <section class="sala">
@@ -95,7 +99,7 @@
 
     <section class="panel">
       <div class="panel-heading"><div><h2>Pacientes citados</h2><p>Listado correspondiente a tu agenda.</p></div>
-        <div class="head-actions"><button id="btnNuevaCita" class="btn btn-primary">＋ Nueva cita</button>
+        <div class="head-actions"><button id="btnNuevaCita" class="btn btn-primary"><i class="ri-add-line"></i> Nueva cita</button>
         <label class="search">Buscar paciente <input id="buscarPaciente" type="search" placeholder="Nombre o DNI"></label></div>
       </div>
       <div class="table-wrap">
@@ -132,7 +136,28 @@
       <div class="acciones"><button type="button" class="btn btn-light" id="citaCancelar">Cancelar</button><button type="button" class="btn btn-primary" id="citaGuardar" disabled>Confirmar cita</button></div>
     </div>
   </div>
+  <div class="modal" id="modalAtencion" hidden>
+    <div class="modal-card clinical-modal" role="dialog" aria-modal="true" aria-labelledby="tituloAtencion">
+      <button type="button" class="modal-x" id="cerrarAtencion" aria-label="Cerrar">×</button>
+      <p class="eyebrow">REGISTRO CLÍNICO</p>
+      <h2 id="tituloAtencion">Finalizar atención</h2>
+      <p id="pacienteAtencion" class="resumen"></p>
+      <label for="atencionSintomas">Síntomas / motivo de atención</label>
+      <textarea id="atencionSintomas" rows="3" maxlength="5000" required></textarea>
+      <label for="atencionDiagnostico">Diagnóstico</label>
+      <textarea id="atencionDiagnostico" rows="3" maxlength="5000" required></textarea>
+      <label for="atencionReceta">Indicaciones / receta médica (opcional)</label>
+      <textarea id="atencionReceta" rows="3" maxlength="5000"></textarea>
+      <p id="atencionError" class="error" role="alert" hidden></p>
+      <div class="acciones"><button type="button" class="btn btn-light" id="cancelarAtencion">Volver</button><button type="button" class="btn btn-primary" id="guardarAtencion">Guardar atención</button></div>
+    </div>
+  </div>
+
   <div id="toast" class="toast" hidden></div>
-  <script src="../assets/js/dashboard_medico.js"></script>
+  <script>window.APP_CONFIG = { apiBase: '../../backend/public/api.php' };</script>
+  <script defer src="../assets/js/core/api-client.js"></script>
+  <script defer src="../assets/js/core/session.js"></script>
+  <script defer src="../assets/js/core/utils.js"></script>
+  <script defer src="../assets/js/modules/medical/agenda.controller.js"></script>
 </body>
 </html>

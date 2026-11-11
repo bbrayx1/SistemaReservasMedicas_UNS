@@ -1,0 +1,9 @@
+# Archivos subidos por los usuarios: no se versionan.
+backend/public/uploads/attachments/*
+backend/public/uploads/profiles/*
+!backend/public/uploads/attachments/.gitkeep
+!backend/public/uploads/profiles/.gitkeep
+
+# Configuración local sensible.
+.env
+.env.local

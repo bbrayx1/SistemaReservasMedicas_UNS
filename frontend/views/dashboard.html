@@ -10,7 +10,7 @@
 
         <nav class="dash-nav">
             <!-- Menú Principal -->
-            <a href="#" class="nav-item active">
+            <a href="#" class="nav-item active" data-route="dashboard">
                 <i class="ri-home-5-fill"></i>
                 <span>Inicio</span>
             </a>
@@ -30,18 +30,18 @@
             ------------------------------- -->
 
             <!--NUEVA VERSION (8/11 10pm)------ -->
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('mis_reservas')">
+            <a href="#" class="nav-item" data-route="mis_reservas">
                 <i class="ri-calendar-check-line"></i>
                 <span>Mis Reservas</span>
             </a>
 
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('nuevo_turno')">
+            <a href="#" class="nav-item" data-route="nuevo_turno">
                 <i class="ri-add-circle-line"></i>
                 <span>Nuevo Turno</span>
             </a>
             <!-- --------------------------------->
 
-            <a href="#" class="nav-item" onclick="event.preventDefault(); AppRouter.loadView('perfil_usuario')">
+            <a href="#" class="nav-item" data-route="perfil_usuario">
                 <i class="ri-user-line"></i>
                 <span>Mi Perfil</span>
             </a>
@@ -53,7 +53,7 @@
 
             <div class="nav-divider"></div>
 
-            <a href="#" class="nav-item logout" onclick="AppRouter.logout()">
+            <a href="#" class="nav-item logout" data-action="logout">
                 <i class="ri-logout-box-r-line"></i>
                 <span>Cerrar Sesión</span>
             </a>
@@ -81,10 +81,10 @@
                     <span class="alert-dot"></span>
                 </button>
                 <div class="user-profile-menu">
-                    <div class="user-avatar">ES</div>
+                    <div class="user-avatar" id="dashUserAvatar">ES</div>
                     <div class="user-info">
-                        <strong>Estudiante123<i class="ri-arrow-down-s-line"></i></strong>
-                        <span>Estudiante</span>
+                        <strong id="dashUserName">Estudiante<i class="ri-arrow-down-s-line"></i></strong>
+                        <span id="dashUserRole">Estudiante</span>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <!-- 1. Banner de Bienvenida -->
             <section class="welcome-banner">
                 <div class="welcome-text">
-                    <h1>¡Hola, Estudiante123!</h1>
+                    <h1 id="dashWelcomeTitle">¡Hola, Estudiante!</h1>
                     <p>Bienvenido al sistema de reservas médicas<br>de la Universidad Nacional del Santa.</p>
                     <hr class="red-line">
                     <span class="slogan">Tu salud, <strong>nuestro compromiso.</strong></span>
@@ -110,7 +110,7 @@
 
             <!-- 2. Acciones Rápidas (4 Tarjetas) -->
             <section class="quick-actions-grid">
-                <button class="action-card primary">
+                <button class="action-card primary" data-route="nuevo_turno">
                     <div class="icon-box"><i class="ri-calendar-add-line"></i></div>
                     <div class="action-info">
                         <strong>Nuevo Turno</strong>
@@ -119,7 +119,7 @@
                     <i class="ri-arrow-right-s-line arrow-icon"></i>
                 </button>
 
-                <button class="action-card">
+                <button class="action-card" data-route="mis_reservas">
                     <div class="icon-box"><i class="ri-calendar-check-line"></i></div>
                     <div class="action-info">
                         <strong>Mis Reservas</strong>
@@ -128,7 +128,7 @@
                     <i class="ri-arrow-right-s-line arrow-icon"></i>
                 </button>
 
-                <button class="action-card">
+                <button class="action-card" data-route="mis_reservas">
                     <div class="icon-box"><i class="ri-file-list-3-line"></i></div>
                     <div class="action-info">
                         <strong>Mi Historial</strong>
@@ -137,7 +137,7 @@
                     <i class="ri-arrow-right-s-line arrow-icon"></i>
                 </button>
 
-                <button class="action-card">
+                <button class="action-card" data-action="faq">
                     <div class="icon-box"><i class="ri-question-line"></i></div>
                     <div class="action-info">
                         <strong>Preguntas Frecuentes</strong>
@@ -154,7 +154,7 @@
                 <div class="widget-box next-appointment">
                     <div class="widget-header">
                         <h3><i class="ri-calendar-event-fill"></i> Próxima Cita</h3>
-                        <a href="#" class="view-all-link">Ver todas <i class="ri-arrow-right-line"></i></a>
+                        <a href="#" class="view-all-link" data-route="mis_reservas">Ver todas <i class="ri-arrow-right-line"></i></a>
                     </div>
 
                     <div class="appointment-card">
@@ -166,15 +166,14 @@
                             </div>
                         </div>
                         <div class="appointment-details">
-                            <h4>Medicina General</h4>
+                            <h4 id="nextService">Sin reservas próximas</h4>
                             <ul class="appointment-specs">
-                                <li><i class="ri-calendar-line"></i> <strong>Fecha:</strong> 10 de Noviembre de 2026
+                                <li><i class="ri-calendar-line"></i> <strong>Fecha:</strong> <span id="nextDate">—</span>
                                 </li>
-                                <li><i class="ri-time-line"></i> <strong>Hora:</strong> 09:30 a.m.</li>
-                                <li><i class="ri-map-pin-line"></i> <strong>Consultorio:</strong> Consultorio N° 1 -
-                                    Centro Médico UNS</li>
+                                <li><i class="ri-time-line"></i> <strong>Hora:</strong> <span id="nextTime">—</span></li>
+                                <li><i class="ri-map-pin-line"></i> <strong>Consultorio:</strong> <span id="nextOffice">Centro Médico UNS</span></li>
                             </ul>
-                            <button class="btn-outline-red">
+                            <button class="btn-outline-red" data-route="mis_reservas">
                                 <i class="ri-calendar-todo-line"></i> Ver Detalles
                             </button>
                         </div>
@@ -185,7 +184,7 @@
                 <div class="widget-box notices-widget">
                     <div class="widget-header">
                         <h3><i class="ri-megaphone-fill"></i> Avisos Importantes</h3>
-                        <a href="#" class="view-all-link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        <a href="#" class="view-all-link" data-route="mis_reservas">Ver más <i class="ri-arrow-right-line"></i></a>
                     </div>
 
                     <div class="notices-list">
@@ -224,16 +223,16 @@
             <section class="services-carousel-widget">
                 <div class="widget-header">
                     <h3><i class="ri-heart-pulse-fill"></i> Servicios Médicos</h3>
-                    <a href="#" class="view-all-link">Ver todos los servicios <i class="ri-arrow-right-line"></i></a>
+                    <a href="#" class="view-all-link" data-route="nuevo_turno">Ver todos los servicios <i class="ri-arrow-right-line"></i></a>
                 </div>
 
                 <div class="services-grid">
-                    <div class="service-pill"><i class="ri-stethoscope-line"></i> <span>Medicina General</span></div>
-                    <div class="service-pill"><i class="ri-tooth-line"></i> <span>Odontología</span></div>
-                    <div class="service-pill"><i class="ri-mental-health-line"></i> <span>Psicología</span></div>
-                    <div class="service-pill"><i class="ri-eye-line"></i> <span>Oftalmología</span></div>
-                    <div class="service-pill"><i class="ri-syringe-line"></i> <span>Vacunación</span></div>
-                    <div class="service-pill"><i class="ri-flask-line"></i> <span>Laboratorio Clínico</span></div>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-stethoscope-line"></i> <span>Medicina General</span></button>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-tooth-line"></i> <span>Odontología</span></button>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-mental-health-line"></i> <span>Psicología</span></button>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-eye-line"></i> <span>Oftalmología</span></button>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-syringe-line"></i> <span>Vacunación</span></button>
+                    <button type="button" class="service-pill" data-route="nuevo_turno"><i class="ri-flask-line"></i> <span>Laboratorio Clínico</span></button>
                 </div>
             </section>
 
@@ -248,8 +247,8 @@
                         <span>La UNS se preocupa por ti.</span>
                     </div>
                 </div>
-                <button class="btn-solid-red">
-                    Conocer más <i class="ri-arrow-right-line"></i>
+                <button class="btn-solid-red" data-route="nuevo_turno">
+                    Reservar una cita <i class="ri-arrow-right-line"></i>
                 </button>
             </section>
 

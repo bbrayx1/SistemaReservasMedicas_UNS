@@ -1,0 +1,153 @@
+<div class="dashboard-layout fade-in-view staff-workspace">
+  <aside class="dash-sidebar">
+    <div class="dash-brand"><img src="assets/img/logo_uns_rojo.png" alt="Universidad Nacional del Santa" class="dash-logo"></div>
+    <nav class="dash-nav" id="staffNavigation">
+      <a href="#" class="nav-item active" data-staff-tab="overview"><i class="ri-home-5-fill"></i><span>Inicio</span></a>
+      <a href="#" class="nav-item" data-staff-tab="bookings"><i class="ri-calendar-check-line"></i><span>Reservas</span></a>
+      <a href="#" class="nav-item" data-staff-tab="today"><i class="ri-calendar-event-line"></i><span>Agenda del día</span></a>
+      <a href="#" class="nav-item" data-staff-tab="queue" id="staffQueueLink"><i class="ri-user-follow-line"></i><span>Sala de espera</span></a>
+      <a href="#" class="nav-item" data-staff-tab="patients" id="staffPatientsLink"><i class="ri-user-heart-line"></i><span>Pacientes</span></a>
+      <a href="#" class="nav-item" data-staff-tab="schedules" id="staffSchedulesLink"><i class="ri-calendar-todo-line"></i><span>Horarios</span></a>
+      <a href="#" class="nav-item" data-staff-tab="services" id="staffServicesLink" hidden><i class="ri-heart-pulse-line"></i><span>Especialidades</span></a>
+      <a href="#" class="nav-item" data-staff-tab="assignments" id="staffAssignmentsLink" hidden><i class="ri-links-line"></i><span>Asignaciones</span></a>
+      <a href="#" class="nav-item" data-staff-tab="create" id="staffCreateLink"><i class="ri-calendar-add-line"></i><span>Nueva cita</span></a>
+      <a href="#" class="nav-item" data-staff-tab="users" id="staffUsersLink" hidden><i class="ri-team-line"></i><span>Usuarios</span></a>
+      <a href="#" class="nav-item" data-staff-tab="reports" id="staffReportsLink" hidden><i class="ri-bar-chart-box-line"></i><span>Reportes</span></a>
+      <div class="nav-divider"></div>
+      <a href="#" class="nav-item logout" data-action="logout"><i class="ri-logout-box-r-line"></i><span>Cerrar sesión</span></a>
+    </nav>
+    <div class="sidebar-bottom-art"></div>
+  </aside>
+  <main class="dash-main-area">
+    <header class="dash-topbar">
+      <div class="search-wrapper"><i class="ri-search-line"></i><input id="staffGlobalSearch" type="search" placeholder="Buscar paciente, DNI o especialidad"></div>
+      <div class="topbar-actions"><div class="user-profile-menu"><div class="user-avatar" id="staffAvatar">UN</div><div class="user-info"><strong id="staffName">Personal UNS</strong><span id="staffRole">Personal</span></div></div></div>
+    </header>
+    <div class="dash-content-scroll">
+      <section class="welcome-banner">
+        <div class="welcome-text"><h1 id="staffWelcome">Bienvenido al Servicio Médico UNS</h1><p id="staffSubtitle">Gestiona la atención médica con información actualizada desde el sistema de reservas.</p><hr class="red-line"><span class="slogan">Tu salud, <strong>nuestro compromiso.</strong></span></div>
+        <div class="welcome-image"><img src="assets/img/unidadMedica.png" alt="Unidad médica UNS"></div>
+      </section>
+      <section class="quick-actions-grid staff-shortcuts" id="staffShortcuts">
+        <button class="action-card primary" data-staff-tab="bookings"><div class="icon-box"><i class="ri-calendar-check-line"></i></div><div class="action-info"><strong>Ver reservas</strong><span>Citas registradas en MySQL</span></div><i class="ri-arrow-right-s-line arrow-icon"></i></button>
+        <button class="action-card" data-staff-tab="today"><div class="icon-box"><i class="ri-time-line"></i></div><div class="action-info"><strong>Agenda del día</strong><span>Pacientes citados hoy</span></div><i class="ri-arrow-right-s-line arrow-icon"></i></button>
+        <button class="action-card" data-staff-tab="overview"><div class="icon-box"><i class="ri-refresh-line"></i></div><div class="action-info"><strong>Actualizar</strong><span>Consultar datos recientes</span></div><i class="ri-arrow-right-s-line arrow-icon"></i></button>
+      </section>
+<section class="staff-card staff-next-section" id="staffQueueSection" hidden>
+        <div class="staff-section-head"><div><h2><i class="ri-user-follow-line"></i> Sala de espera y siguiente turno</h2><p>Ilustración original de la agenda médica, vinculada a las citas de hoy.</p></div><button class="staff-btn staff-primary" id="staffQueueRefresh" type="button"><i class="ri-refresh-line"></i> Actualizar</button></div>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- Paciente sentado: colores por variables CSS -->
+      <symbol id="seated" overflow="visible">
+        <rect x="-17" y="0" width="12" height="40" rx="5" style="fill:var(--pants)"/>
+        <rect x="5" y="0" width="12" height="40" rx="5" style="fill:var(--pants)"/>
+        <rect x="-20" y="-70" width="40" height="76" rx="14" style="fill:var(--shirt)"/>
+        <g class="bob">
+          <circle cy="-90" r="16" style="fill:var(--skin)"/>
+          <path d="M-17-92a17 17 0 0 1 34 0c-6-8-24-8-34 0z" style="fill:var(--hair)"/>
+          <ellipse class="eye" cx="-6" cy="-89" rx="2" ry="2.4" fill="#2a1218"/>
+          <ellipse class="eye" cx="6" cy="-89" rx="2" ry="2.4" fill="#2a1218"/>
+          <path d="M-5-82q5 4 10 0" stroke="#2a1218" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+        <svg class="scene staff-wait-scene" viewBox="0 0 900 260" role="img" aria-label="Ilustración de sala de espera">
+        <rect width="900" height="260" fill="#fff1f3"/>
+        <rect y="205" width="900" height="55" fill="#f3d3d9"/>
+        <rect y="200" width="900" height="6" fill="#dc2c4c"/>
+        <!-- Ventana con nubes -->
+        <svg x="60" y="25" width="170" height="110"><rect width="170" height="110" rx="8" fill="#cfeaff"/><g class="cloud"><ellipse cx="0" cy="35" rx="26" ry="10" fill="#fff"/><ellipse cx="18" cy="28" rx="16" ry="10" fill="#fff"/></g></svg>
+        <rect x="60" y="25" width="170" height="110" rx="8" fill="none" stroke="#fff" stroke-width="8"/><path d="M145 25v110M60 80h170" stroke="#fff" stroke-width="5"/>
+        <!-- Reloj -->
+        <g transform="translate(350 70)"><circle r="34" fill="#fff" stroke="#b70730" stroke-width="5"/><path d="M0-27v5M27 0h-5M0 27v-5M-27 0h5" stroke="#b70730" stroke-width="3"/>
+          <path class="hh" d="M0 0V-17" stroke="#2a1218" stroke-width="4" stroke-linecap="round"/><path class="mh" d="M0 0V-26" stroke="#dc2c4c" stroke-width="3" stroke-linecap="round"/><circle r="3" fill="#b70730"/></g>
+        <!-- Pantalla de turno -->
+        <g transform="translate(450 38)"><rect width="150" height="64" rx="8" fill="#8a0522"/><text x="75" y="22" fill="#ffd5dc" font-size="12" text-anchor="middle" font-family="Arial" letter-spacing="2">SIGUIENTE TURNO</text><text class="led" id="staffNextCode" x="75" y="52" fill="#fff" font-size="26" font-weight="700" text-anchor="middle" font-family="Arial">--</text></g>
+        <!-- Afiche con cruz -->
+        <g transform="translate(680 30)"><rect width="110" height="120" rx="8" fill="#fff" stroke="#f0d9de" stroke-width="3"/><path d="M45 28h20v20h20v20H65v20H45V68H25V48h20z" fill="#dc2c4c"/><text x="55" y="108" font-size="11" font-family="Arial" font-weight="700" fill="#8a0522" text-anchor="middle">CUIDAMOS TU SALUD</text></g>
+        <!-- Planta -->
+        <g transform="translate(25 200)"><rect x="-16" y="-34" width="32" height="34" rx="5" fill="#b70730"/><g class="sway"><path d="M0-34C-30-70-26-100-4-120 6-90 8-60 0-34zM0-34C30-60 34-96 14-116c-14 24-18 52-14 82z" fill="#3d9b62"/></g></g>
+        <!-- Banca con pacientes -->
+        <g transform="translate(150 188)">
+          <rect x="-30" y="-78" width="450" height="52" rx="12" fill="#b70730"/>
+          <use href="#seated" x="30" y="-8" style="--skin:#f1c27d;--hair:#2b1b17;--shirt:#ffffff;--pants:#34405a"/>
+          <use href="#seated" x="150" y="-8" style="--skin:#c68642;--hair:#171010;--shirt:#dc2c4c;--pants:#2a2f45"/>
+          <use href="#seated" x="270" y="-8" style="--skin:#e8b08a;--hair:#6b3b1d;--shirt:#f6b8c3;--pants:#3a3f55"/>
+          <use href="#seated" x="390" y="-8" style="--skin:#8d5524;--hair:#0f0a0a;--shirt:#8a0522;--pants:#2a2f45"/>
+          <!-- revista y celular -->
+          <g transform="translate(150 -52) rotate(-8)"><rect x="-16" y="-10" width="32" height="24" rx="3" fill="#fff" stroke="#dc2c4c" stroke-width="2"/><path d="M-9-3h18M-9 3h12" stroke="#dc2c4c" stroke-width="2"/></g>
+          <g transform="translate(270 -48)"><rect x="-6" y="-12" width="12" height="22" rx="3" fill="#2a1218"/><rect class="led" x="-4" y="-9" width="8" height="15" rx="2" fill="#9be7ff"/></g>
+          <!-- saludo -->
+          <g transform="translate(414 -58)"><rect class="hand" x="-3" y="-26" width="6" height="26" rx="3" fill="#8d5524"/></g>
+          <rect x="-30" y="-14" width="450" height="12" rx="6" fill="#8a0522"/><rect x="-10" y="-4" width="10" height="30" fill="#4b0414"/><rect x="390" y="-4" width="10" height="30" fill="#4b0414"/>
+        </g>
+        <!-- Corazones flotantes -->
+        <path class="heart" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(190 80) scale(1.6)"/>
+        <path class="heart" style="animation-delay:-2s" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(430 90) scale(1.3)"/>
+        <path class="heart" style="animation-delay:-1s" d="M0 6C-8-4-4-12 0-6 4-12 8-4 0 6z" transform="translate(670 85) scale(1.5)"/>
+      </svg>
+        <div class="staff-next-details" id="staffNextDetails" role="status">Consultando pacientes de hoy…</div>
+        <div class="staff-patient-cards" id="staffQueueCards"></div>
+      </section>
+      <section class="staff-card" id="staffPatientsSection" hidden>
+        <div class="staff-section-head"><div><h2>Pacientes y antecedentes</h2><p>Consulta las personas registradas y sus atenciones autorizadas.</p></div></div>
+        <div class="staff-booking-form"><label>Buscar estudiante por DNI, código o nombre<input id="staffPatientDirectoryQuery" type="search" minlength="3" placeholder="Mínimo tres caracteres"></label><button class="staff-btn staff-primary" type="button" id="staffPatientDirectorySearch">Buscar pacientes</button></div>
+        <div id="staffPatientDirectory" class="staff-patient-cards" aria-live="polite"></div><div id="staffHistory" class="staff-history"></div>
+      </section>
+      <section class="staff-card" id="staffSchedulesSection" hidden>
+        <div class="staff-section-head"><div><h2>Horarios de atención</h2><p>Gestiona disponibilidad por profesional y especialidad.</p></div></div>
+        <form id="staffScheduleForm" class="staff-booking-form" hidden>
+          <label>Profesional / especialidad<select id="staffScheduleDoctor" required></select></label>
+          <label>Fecha<input type="date" id="staffScheduleDate" required></label>
+          <label>Hora de inicio (30 min)<input type="time" id="staffScheduleHour" step="1800" required></label>
+          <button type="submit" class="staff-btn staff-primary">Agregar horario</button>
+        </form><p id="staffScheduleMessage" role="status"></p>
+        <div class="staff-table-wrap"><table class="staff-table"><thead><tr><th>Fecha</th><th>Hora</th><th>Profesional</th><th>Servicio</th><th>Estado</th><th>Control</th></tr></thead><tbody id="staffSchedulesBody"></tbody></table></div>
+      </section>
+      <section class="staff-card" id="staffAssignmentsSection" hidden><div class="staff-section-head"><div><h2>Especialidades de profesionales</h2><p>Asigna servicios nuevos a profesionales existentes.</p></div></div><form id="staffAssignmentForm" class="staff-booking-form"><label>Profesional<select id="staffAssignmentDoctor" required></select></label><label>Especialidad<select id="staffAssignmentService" required></select></label><button class="staff-btn staff-primary" type="submit">Asignar especialidad</button></form><p id="staffAssignmentMessage" role="status"></p></section>
+      <section class="staff-card" id="staffServicesSection" hidden><div class="staff-section-head"><div><h2>Servicios y especialidades</h2><p>Activa, desactiva o crea los servicios de la unidad médica.</p></div></div>
+        <form id="staffServiceForm" class="staff-booking-form"><input type="hidden" id="staffServiceId"><label>Nombre<input id="staffServiceName" maxlength="80" required></label><label>Descripción<input id="staffServiceDescription" maxlength="255"></label><button class="staff-btn staff-primary" type="submit">Guardar servicio</button><button class="staff-btn" type="reset">Limpiar</button></form>
+        <p id="staffServiceMessage" role="status"></p><div id="staffServicesList" class="staff-patient-cards"></div>
+      </section>
+      <section class="staff-card" id="staffUserManagement" hidden>
+        <div class="staff-section-head"><div><h2>Crear usuario del sistema</h2><p>Registra estudiantes, especialistas, recepción y administradores.</p></div></div>
+        <form id="staffUserForm" class="staff-booking-form">
+          <label>Nombres<input name="nombres" maxlength="80" required></label><label>Apellidos<input name="apellidos" maxlength="80" required></label>
+          <label>DNI<input name="dni" pattern="[0-9]{8}" maxlength="8" required></label><label>Correo<input name="correo" type="email" maxlength="150" required></label>
+          <label>Rol<select name="id_rol" id="staffUserRole" required><option value="1">Estudiante</option><option value="2">Profesional de salud</option><option value="3">Recepción</option><option value="4">Administrador</option></select></label>
+          <label id="staffStudentCodeWrap">Código universitario<input name="codigo_universitario" pattern="[0-9]{10}" maxlength="10"></label>
+          <label>Contraseña temporal<input type="password" name="password" minlength="10" required autocomplete="new-password"></label>
+          <label id="staffConsultorioWrap" hidden>Consultorio<input name="consultorio" maxlength="100"></label>
+          <label id="staffColegiaturaWrap" hidden>Colegiatura / registro<input name="colegiatura" maxlength="30"></label>
+          <label id="staffUserSpecialtiesWrap" hidden>Especialidades (selecciona una o varias)<select id="staffUserSpecialties" multiple size="6"></select></label>
+          <button type="submit" class="staff-btn staff-primary">Crear usuario</button>
+        </form><p id="staffUserMessage" role="status"></p>
+      </section>
+      <section class="staff-card" id="staffDoctorBooking" hidden>
+        <div class="staff-section-head"><div><h2>Nueva cita para paciente</h2><p>Reserva un horario libre. Medicina, Psicología, Odontología y otros servicios autorizados.</p></div></div>
+        <div class="staff-booking-form">
+          <label>Buscar estudiante <input id="staffPatientQuery" type="search" placeholder="DNI, código o nombre"></label>
+          <label>Seleccionar paciente <select id="staffPatient"><option value="">Escribe al menos 3 caracteres</option></select></label>
+          <button type="button" class="staff-btn" id="staffShowNewPatient">Registrar nuevo estudiante</button>
+          <form id="staffNewPatientForm" class="staff-subform" hidden><h3>Registrar estudiante</h3><input name="nombres" placeholder="Nombres" required maxlength="80"><input name="apellidos" placeholder="Apellidos" required maxlength="80"><input name="dni" placeholder="DNI (8 dígitos)" required pattern="[0-9]{8}"><input name="codigo_universitario" placeholder="Código universitario (opcional)" pattern="[0-9]{10}"><input name="correo" type="email" placeholder="Correo" required><button type="submit" class="staff-btn staff-primary">Guardar estudiante</button></form>
+          <label>Especialidad <select id="staffService"><option value="">Cargando…</option></select></label>
+          <label>Fecha <input type="date" id="staffSlotDate"></label>
+          <label>Hora libre <select id="staffSlot"><option value="">Selecciona fecha y especialidad</option></select></label>
+          <button type="button" class="staff-btn staff-primary" id="staffCreateBooking">Registrar cita</button>
+          <p id="staffCreateResult" role="status"></p>
+        </div>
+      </section>
+      <section class="staff-stats" id="staffStats" aria-label="Indicadores de citas"></section>
+      <section class="staff-card" id="staffBookingsSection">
+        <div class="staff-section-head"><div><h2 id="staffSectionTitle">Reservas registradas</h2><p id="staffSectionDescription">Las reservas aparecen aquí al confirmarse por el estudiante.</p></div><div class="staff-filters"><label>Fecha <input type="date" id="staffDate"></label><button type="button" id="staffClearDate" class="staff-btn">Todas las fechas</button><button type="button" id="staffReload" class="staff-btn staff-primary"><i class="ri-refresh-line"></i> Actualizar</button></div></div>
+        <div class="staff-table-wrap"><table class="staff-table"><thead><tr><th>Fecha</th><th>Hora</th><th>Paciente / DNI</th><th>Especialidad</th><th>Profesional</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="staffBookingsBody"><tr><td colspan="7">Cargando reservas…</td></tr></tbody></table></div>
+        <p id="staffFeedback" class="staff-feedback" role="status"></p>
+      </section>
+      <section class="staff-card" id="staffUserEditor" hidden><div class="staff-section-head"><h2>Editar datos de usuario</h2></div><form id="staffUserEditForm" class="staff-booking-form"><input type="hidden" name="id_usuario"><label>Nombres<input name="nombres" required maxlength="80"></label><label>Apellidos<input name="apellidos" required maxlength="80"></label><label>Correo<input name="correo" type="email" required maxlength="150"></label><button type="submit" class="staff-btn staff-primary">Guardar cambios</button><button type="button" class="staff-btn" id="staffUserEditClose">Cancelar</button></form><p id="staffUserEditMessage" role="status"></p></section>
+      <section class="staff-card" id="staffUsersSection" hidden><div class="staff-section-head"><h2>Usuarios del sistema</h2><button class="staff-btn staff-primary" id="staffNewUser" type="button">Crear usuario</button></div><div class="staff-table-wrap"><table class="staff-table"><thead><tr><th>Nombre</th><th>DNI</th><th>Código</th><th>Rol</th><th>Correo</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="staffUsersBody"></tbody></table></div></section>
+      <section class="staff-card" id="staffReportsSection" hidden><div class="staff-section-head"><h2>Indicadores generales</h2></div><div id="staffReportMetrics"></div><div class="staff-charts"><div><h3>Reservas mensuales</h3><canvas id="staffMonthChart"></canvas></div><div><h3>Demanda por especialidad</h3><canvas id="staffServiceChart"></canvas></div></div></section>
+    </div>
+  </main>
+  <dialog id="staffAttendDialog" class="staff-dialog"><form id="staffAttendForm" method="dialog"><h2>Registrar atención</h2><p id="staffAttendPatient"></p><label>Síntomas<textarea id="staffSymptoms" maxlength="5000" required></textarea></label><label>Diagnóstico<textarea id="staffDiagnosis" maxlength="5000" required></textarea></label><label>Receta / indicaciones<textarea id="staffPrescription" maxlength="5000"></textarea></label><div class="staff-dialog-actions"><button type="button" id="staffAttendClose" class="staff-btn">Cancelar</button><button type="submit" class="staff-btn staff-primary">Finalizar atención</button></div></form></dialog>
+</div>

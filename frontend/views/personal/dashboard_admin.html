@@ -6,10 +6,10 @@
             <img src="https://www.uns.edu.pe/img/logo_rojo.png" alt="UNS" style="height: 55px;">
         </div>
         <nav class="sidebar-nav">
-            <a href="#" class="active"><i class="ri-dashboard-line"></i> Panel General</a>
-            <a href="#"><i class="ri-user-settings-line"></i> Gestión Médicos</a>
-            <a href="#"><i class="ri-bar-chart-box-line"></i> Reportes</a>
-            <a href="#" onclick="AppRouter.logout(); return false;"><i class="ri-logout-box-line"></i> Cerrar Sesión</a>
+            <a href="#" class="active" data-admin-section="general"><i class="ri-dashboard-line"></i> Panel General</a>
+            <a href="#" data-admin-section="medicos"><i class="ri-user-settings-line"></i> Gestión Médicos</a>
+            <a href="#" data-admin-section="reportes"><i class="ri-bar-chart-box-line"></i> Reportes</a>
+            <a href="#" data-action="logout"><i class="ri-logout-box-line"></i> Cerrar Sesión</a>
         </nav>
     </aside>
 
@@ -27,7 +27,7 @@
                 <div class="user-profile">
                     <div class="user-avatar" style="background: #e3f2fd; color: #0d47a1;">AD</div>
                     <div class="user-info-text">
-                        <strong>Administrador</strong>
+                        <strong id="adminUserName">Administrador</strong>
                         <span>Sistemas TI</span>
                     </div>
                     <i class="ri-arrow-down-s-line" style="color: #888; margin-right: 5px;"></i>
@@ -40,7 +40,7 @@
             <div class="welcome-text">
                 <h1>¡Hola, Administrador!</h1>
                 <p>Supervisa el rendimiento del sistema médico<br>y la carga de atención diaria.</p>
-                <span class="highlight">Sistemas en línea y operativos.</span>
+                <span class="highlight">Panel de control del Servicio Médico UNS.</span>
             </div>
             <!-- Imagen representativa de tecnología/datos -->
             <div class="welcome-image">
@@ -51,7 +51,7 @@
         <section class="content-section">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
                 <div class="card">
-                    <h3><i class="ri-pie-chart-2-line"></i> Atenciones Mensuales (2026)</h3>
+                    <h3><i class="ri-pie-chart-2-line"></i> Reservas mensuales</h3>
                     <!-- Contenedor del gráfico de barras -->
                     <div style="position: relative; height: 250px; width: 100%; margin-top: 15px;">
                         <canvas id="citasMesChart"></canvas>
